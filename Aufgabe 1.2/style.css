@@ -1,0 +1,23 @@
+li{
+    list-style:none;
+}
+a{
+    font-family:Arial, Helvetica, sans-serif; 
+    color : black;
+    text-decoration: none;
+}
+p{
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+}
+h2{
+    font-family: Arial, Helvetica, sans-serif;
+}
+h3{
+    font-family: Arial, Helvetica, sans-serif;
+}
+h4{
+    font-family: Arial, Helvetica, sans-serif;
+}
