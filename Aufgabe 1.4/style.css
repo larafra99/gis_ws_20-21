@@ -1,12 +1,11 @@
-
 ul{
     list-style:none;
     font-family:Arial, Helvetica, sans-serif;
 }
 main{
     margin:auto;
-   width: 70%;
-   text-align: center;
+    width: 70%;
+    text-align: center;
 }
 body{
     background-image:url(pictures/marble.jpg) ;
