@@ -1,0 +1,78 @@
+
+ul{
+    list-style:none;
+    font-family:Arial, Helvetica, sans-serif;
+}
+main{
+    margin:auto;
+   width: 70%;
+   text-align: center;
+}
+body{
+    background-image:url(pictures/marble.jpg) ;
+    background-size: 100%;
+}
+h1{
+    width:70%;
+    color:  #0B3B2E;
+    font-family: Arial, Helvetica, sans-serif;
+    margin:auto;
+    text-align: center;
+}
+h2,h3,h4{
+    color:  #0B3B2E;
+    font-family: Arial, Helvetica, sans-serif;
+}
+img {
+    max-width: 60%;
+    max-height: 60%;
+}
+
+li a:hover{
+    background-color: black;
+   
+}
+.nav {
+    list-style:none;
+    margin:0px;
+    padding:0px;
+    width: 100%;
+    overflow:hidden;
+    background: #0B3B2E;
+    
+}
+.nav li{
+    float:left;
+}
+.nav li a{
+    display:block;
+    color:white;
+    padding: 14px 16px;
+    text-align:center;
+    text-decoration: none;
+}
+
+div{
+    width:300px;
+    border: 15px;
+    padding: 50px;
+    margin:auto;
+}
+.contact{
+    border-radius: 10px;
+    padding : 10px;
+    
+}
+.contact-element{
+    width: 100%;
+    padding:20px;
+    margin-top:15px;
+    color:black;
+}
+a{
+    font-family:Arial, Helvetica, sans-serif; 
+    color :black;  
+}
+p{
+    font-family: Arial, Helvetica, sans-serif;
+}
