@@ -1,10 +1,33 @@
 
 ul{
     list-style:none;
-    
+    font-family:Arial, Helvetica, sans-serif;
+}
+main{
+    margin-left:100px;
+    margin-right:120px;
+}
+body{
+    background-image:url(pictures/marble.jpg) ;
+    background-size: 100%;
+}
+h1{
+    margin-left:100px;
+    margin-top:50px;
+    color:  #0B3B2E;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h2,h3,h4{
+    color:  #0B3B2E;
+    font-family: Arial, Helvetica, sans-serif;
+}
+img {
+    max-width: 60%;
+    max-height: 60%;
 }
 li a:hover{
     background-color: black;
+   
 }
 .nav {
     list-style:none;
@@ -23,6 +46,7 @@ li a:hover{
     color:white;
     padding: 14px 16px;
     text-align:center;
+    text-decoration: none;
 }
 
 div{
@@ -31,23 +55,21 @@ div{
     padding: 50px;
     margin:20px;
 }
+.contact{
+    border-radius: 10px;
+    padding : 10px;
+    
+}
+.contact-element{
+    width: 100%;
+    padding:20px;
+    margin-top:15px;
+    color:black;
+}
 a{
     font-family:Arial, Helvetica, sans-serif; 
-    color : black;
-    text-decoration: none;
+    color :black;  
 }
 p{
-    font-family: Arial, Helvetica, sans-serif;
-}
-h1{
-    font-family: Arial, Helvetica, sans-serif;
-}
-h2{
-    font-family: Arial, Helvetica, sans-serif;
-}
-h3{
-    font-family: Arial, Helvetica, sans-serif;
-}
-h4{
     font-family: Arial, Helvetica, sans-serif;
 }
