@@ -6,16 +6,27 @@ ol{
     list-style:none;
     font-family:Arial, Helvetica, sans-serif;
 }
-label{
+aside{
+    float: right;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.contact label{
     font-family:Arial, Helvetica, sans-serif;
     position: relative;
     left:-100px;
     margin:auto;
 }
+label{
+    font-family:Arial, Helvetica, sans-serif;
+}
 .tiere{
     position: relative;
     left:-20px;
     
+}
+.Lab label{
+    position:relative;
+    right:100px;
 }
 main{
     margin:auto;
