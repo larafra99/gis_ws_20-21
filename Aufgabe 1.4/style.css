@@ -28,10 +28,15 @@ label{
     position:relative;
     right:100px;
 }
+textarea{
+    font-family:Arial, Helvetica, sans-serif;
+}
 main{
     margin:auto;
     width: 70%;
     text-align: center;
+    justify-content: center;
+    
 }
 body{
     background-image:url(pictures/marble.jpg) ;
@@ -57,7 +62,6 @@ img[alt="Pferd"]{
     max-width: 60%;
     max-height: 60%;
 }
-
 a:hover{
     color:blue;
 }
@@ -138,7 +142,7 @@ h4+p{
         height: auto;
     }
     div{
-        width:70%;
+        width:100%;
         margin: auto;
     }
     video{
