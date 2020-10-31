@@ -120,8 +120,7 @@ h4+p{
     color: #0B3B2E;
 }
 /*Tablet*/
-@media (max-width:1024px)and(min-width:600px){
-    
+@media screen and (max-width:1024px){
     video{
         width:100%;
         height:auto;
@@ -140,10 +139,16 @@ h4+p{
     }
     div{
         width:70%;
+        margin: auto;
+    }
+    video{
+        width:100%;
+        height:auto;
+        margin:auto;
     }
 }
 /*Smartphone*/
-@media(max-width:600px ){
+@media screen and (max-width:600px ){
     .nav a{
         font-size: small;
     }
