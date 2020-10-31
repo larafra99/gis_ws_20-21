@@ -2,9 +2,20 @@ ul{
     list-style:none;
     font-family:Arial, Helvetica, sans-serif;
 }
+ol{
+    list-style:none;
+    font-family:Arial, Helvetica, sans-serif;
+}
+label{
+    font-family:Arial, Helvetica, sans-serif;
+    position: relative;
+    left:-100px;
+    margin:auto;
+}
 .tiere{
     position: relative;
     left:-20px;
+    
 }
 main{
     margin:auto;
@@ -28,6 +39,10 @@ h2,h3,h4{
     font-family: Arial, Helvetica, sans-serif;
 }
 img[alt="ich"]{
+    max-width: 60%;
+    max-height: 60%;
+}
+img[alt="Pferd"]{
     max-width: 60%;
     max-height: 60%;
 }
@@ -77,6 +92,7 @@ div button{
     width: 100%;
     padding:20px;
     margin-top:15px;
+    margin-bottom: 15px;
     color:black;
 }
 p~a{
@@ -112,24 +128,12 @@ h4+p{
 }
 /*Smartphone*/
 @media(max-width:600px ){
-    .nav{
-       
-        overflow: auto;
-        background-color: #0B3B2E;
-        position: relative;
-    }
     .nav a{
-        color: white;
-        padding: 14px,16px;
-        text-decoration: none;
-        display: block;
         font-size: small;
-        
     }
     main{
         width:100%;
     }
-
     video{
         width:100%;
         height:auto;
@@ -148,5 +152,11 @@ h4+p{
     }
     div{
         width:70%;
+    }
+    .contact{
+        width:80%;
+    }
+    .contact-element{
+        width:100%;
     }
 }
