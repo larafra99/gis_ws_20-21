@@ -1,3 +1,4 @@
+"use strict";
 function a1() {
     let x = "Alles";
     console.log(x);
@@ -11,6 +12,7 @@ a1();
 function func1() {
     console.log("Klar?");
 }
-function func2(){
+function func2() {
     console.log("Gute!");
 }
+//# sourceMappingURL=aufgabe1.js.map
