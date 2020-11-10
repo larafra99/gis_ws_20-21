@@ -5,7 +5,7 @@ function a2(): void {
     do {
         console.log(i);
         i = i - 1;
-    } while( i > 0);
+    } while ( i > 0);
 }
 
 a2();

@@ -1,5 +1,5 @@
-function a1() {
-    let x = "Alles";
+function a1(): void {
+    let x: string = "Alles";
     console.log(x);
     func2();
     console.log(x);
@@ -8,9 +8,9 @@ function a1() {
     console.log("Logo!");
 }
 a1();
-function func1() {
+function func1(): void {
     console.log("Klar?");
 }
-function func2(){
+function func2(): void {
     console.log("Gute!");
 }
