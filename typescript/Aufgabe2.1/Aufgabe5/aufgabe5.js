@@ -10,6 +10,7 @@ leapyear();
 function multiply(x, y) {
     let c = x * y;
     console.log(c);
+    return c;
 }
 function max(x, y) {
     if (x < y) {

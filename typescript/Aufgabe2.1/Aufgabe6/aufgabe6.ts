@@ -2,9 +2,9 @@ string();
 number();
 fizzbuzz();
 chess();
-chess2(4, 3);
+chess2(3, 4);
 
-function string (): void {
+function string(): void {
     let a: string = "";
     while (a.length < 7) {
         a = a + "#";
@@ -29,7 +29,7 @@ function number(): void {
 function fizzbuzz(): void {
     for (let i: number = 0; i < 100; i++) {
 
-        if (i % 3 == 0 && i % 5 == 0 ) {
+        if (i % 3 == 0 && i % 5 == 0) {
             console.log("FizzBuzz");
         }
         else if (i % 3 == 0) {
@@ -59,7 +59,7 @@ function chess(): string {
                 zeichen = "#";
             }
         }
-        board = board + "/n";
+        board = board + "\n";
         if (zeichen == "#") {
             zeichen = " ";
         }
@@ -71,7 +71,7 @@ function chess(): string {
     return board;
 
 }
-function chess2(x: number, y: number): string {
+function chess2 (x: number, y: number): string {
     let board: string = "";
     let zeichen: string = " ";
     for (let laenge: number = 0; laenge < x; laenge++) {
@@ -85,13 +85,17 @@ function chess2(x: number, y: number): string {
                 zeichen = "#";
             }
         }
-        board = board + "/n";
-        if (zeichen == "#") {
-            zeichen = " ";
+        board = board + "\n";
+        if (x % 2 == 0 || y % 2 == 0) {
+            if (zeichen == "#") {
+                zeichen = " ";
+            }
+            else {
+                zeichen = "#";
+            }
+
         }
-        else {
-            zeichen = "#";
-        }
+         
     }
     console.log(board);
     return board;

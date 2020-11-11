@@ -3,7 +3,7 @@ string();
 number();
 fizzbuzz();
 chess();
-chess2(4, 3);
+chess2(3, 4);
 function string() {
     let a = "";
     while (a.length < 7) {
@@ -54,7 +54,7 @@ function chess() {
                 zeichen = "#";
             }
         }
-        board = board + "/n";
+        board = board + "\n";
         if (zeichen == "#") {
             zeichen = " ";
         }
@@ -79,12 +79,14 @@ function chess2(x, y) {
                 zeichen = "#";
             }
         }
-        board = board + "/n";
-        if (zeichen == "#") {
-            zeichen = " ";
-        }
-        else {
-            zeichen = "#";
+        board = board + "\n";
+        if (x % 2 == 0 || y % 2 == 0) {
+            if (zeichen == "#") {
+                zeichen = " ";
+            }
+            else {
+                zeichen = "#";
+            }
         }
     }
     console.log(board);
