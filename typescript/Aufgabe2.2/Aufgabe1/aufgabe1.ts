@@ -1,11 +1,10 @@
 namespace Aufgabe211 {
-    let a: number[] = [3, 2, 4, 7];
-    min(a);
+    min(3, 2, 4, 7);
     console.log(isEven(-1));
     
     
 
-    function min (x: number[]): number {
+    function min (...x: number[]): number {
         let minnum: number = x[0];
         for (let i: number = 1; i < x.length; i++) {
             if (minnum > x[i]) {
