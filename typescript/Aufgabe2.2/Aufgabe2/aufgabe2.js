@@ -3,11 +3,11 @@ var Aufgabe212;
 (function (Aufgabe212) {
     let a = [1, 2, 3, 4, 5, 6];
     let b = [7, 8, 9, 10, 11];
-    let c = [12, 13, 14, 15];
+    //let c: number[] = [12, 13, 14, 15];
     console.log(backwards(a));
     console.log(join(a, b));
     console.log(split(a, 1, 4));
-    console.log(bonusjoin(a, b, c));
+    //console.log(bonusjoin(a, b, c));
     function backwards(x) {
         let y = [];
         for (let i = 0; i < x.length; i++) {
@@ -25,13 +25,14 @@ var Aufgabe212;
         }
         return j;
     }
-    function bonusjoin(...l) {
-        let z = [];
-        for (let f = 0; f < l.length; f++) {
+    /*function bonusjoin(...l: number[]): number[] {
+        let z: number[] = [];
+        for ( let f: number = 0; f < l.length; f++) {
             z.push(l[f]);
         }
         return z;
-    }
+
+    }*/
     function split(t, u, v) {
         let w = [];
         if (u < 0 || v > t.length) {

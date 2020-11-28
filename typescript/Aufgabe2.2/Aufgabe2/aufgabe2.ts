@@ -2,11 +2,11 @@ namespace Aufgabe212 {
 
     let a: number[] = [1, 2, 3, 4, 5, 6];
     let b: number[] = [7, 8, 9, 10, 11];
-    let c: number[] = [12, 13, 14, 15];
+    //let c: number[] = [12, 13, 14, 15];
     console.log(backwards(a));
     console.log(join(a, b));
     console.log(split(a, 1, 4));
-    console.log(bonusjoin(a, b, c));
+    //console.log(bonusjoin(a, b, c));
 
 
     function backwards (x: number[]): number[] {
@@ -29,14 +29,14 @@ namespace Aufgabe212 {
         return j;
 
     }
-    function bonusjoin(...l: number[]): number[] {
+    /*function bonusjoin(...l: number[]): number[] {
         let z: number[] = [];
         for ( let f: number = 0; f < l.length; f++) {
             z.push(l[f]);
         }
         return z;
 
-    }
+    }*/
     function split (t: number[], u: number, v: number): number[] {
         let w: number[] = [];
         if ( u < 0 || v > t.length) {
