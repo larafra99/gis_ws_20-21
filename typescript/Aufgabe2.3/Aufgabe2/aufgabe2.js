@@ -19,5 +19,7 @@ var aufgabe232;
             return this.legs;
         }
     }
+    let f = new Humans;
+    f.getallhead();
 })(aufgabe232 = exports.aufgabe232 || (exports.aufgabe232 = {}));
 //# sourceMappingURL=aufgabe2.js.map

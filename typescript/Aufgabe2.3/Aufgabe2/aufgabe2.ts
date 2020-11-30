@@ -21,6 +21,8 @@ export namespace aufgabe232 {
             return this.legs;
         }
     }
+    let f: Humans = new Humans;
+    f.getallhead();
 }
 
 
