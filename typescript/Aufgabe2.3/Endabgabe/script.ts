@@ -5,15 +5,6 @@ namespace aufgabe232 {
         body: string;
         leg: string;
 
-        setBody(b: string): void {
-            this.body = b;
-        }
-        setHead(h: string): void {
-            this.head = h;
-        }
-        setLeg(l: string): void {
-            this.leg = l;
-        }
         getBody(): string {
              return this.body;
         }
@@ -25,51 +16,40 @@ namespace aufgabe232 {
         }
 
     }
-    let f: Human = new Human;
- 
-    export class Humans {
+    export interface Parts {
+        top: Array<string>;
+        middle: Array<string>;
+        bottom: Array<string>;
+    }
+    class Humans {
         heads: Array<string>;
         bodies: Array<string>;
         legs: Array<string>;
-        parts: Array<string>;
 
         constructor() {
-            this.heads = koepfe;
-            this.bodies = koerper;
-            this.legs = beine;
-            
+            let humanparts: string = dataJSonString();
+            let parts: Parts = JSON.parse(humanparts);
+            this.heads = parts.top;
+            this.bodies = parts.middle;
+            this.legs = parts.bottom;
 
         }
-        getallhead(): string[] {
-            return this.heads;
-        }
-        getallbodies(): string[] {
-            return this.bodies;
-        }
-        getalllegs(): string[] {
-            return this.legs;
-        }
+      
         clickFunction(evt: Event): void { 
             let selection: string = (evt.target as Element).innerHTML;
-            let bodyPart: string = (evt.target as Element).id;
-            console.log( selection, bodyPart );  
-            //localStorage.setItem(Selection);
             if (document.getElementById("head") != null) {
-                f.setHead(selection);
-                //localStorage.setItem("head", Selection);
+                sessionStorage.setItem("head", selection);
                 window.location.replace("body.html");
             }
             else if (document.getElementById("body") != null) {
-                f.setBody(selection);
+                sessionStorage.setItem("body", selection);
                 window.location.replace("legs.html");
             }
             else if (document.getElementById("leg") != null) {
-                f.setLeg(selection);
+                sessionStorage.setItem("leg", selection);
                 window.location.replace("human.html");
-            }
-           
-           
-            }
+            }   
+        }
         
         makelist(): void {
             if (document.getElementById("Auswahl") != null) {
@@ -99,21 +79,36 @@ namespace aufgabe232 {
                     document.getElementById("beine").appendChild(knopf);
                 }
             }
+            
+            if (document.getElementById("example") != null) {
+                sessionStorage.clear();
 
-       
-        }
-        
+
+            }
+            else {
+                let list: HTMLElement = document.createElement("ul");
+                document.getElementById("finish").appendChild(list);
+                let listele1: HTMLElement = document.createElement("li");
+                let listele2: HTMLElement = document.createElement("li");
+                let listele3: HTMLElement = document.createElement("li");
+                listele1.innerHTML = sessionStorage.getItem("head");
+                list.appendChild(listele1);
+                listele2.innerHTML = sessionStorage.getItem("body");
+                list.appendChild(listele2);
+                listele3.innerHTML = sessionStorage.getItem("leg");
+                list.appendChild(listele3);
+            }
+
+
+            
+        }   
     }
    
     
     let d: Humans = new Humans;
-   
+    if (document)
     d.makelist();
-    console.log(f.getLeg);
 
-   
-   
-    
     }
    
  

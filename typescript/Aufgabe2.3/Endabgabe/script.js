@@ -2,15 +2,6 @@
 var aufgabe232;
 (function (aufgabe232) {
     class Human {
-        setBody(b) {
-            this.body = b;
-        }
-        setHead(h) {
-            this.head = h;
-        }
-        setLeg(l) {
-            this.leg = l;
-        }
         getBody() {
             return this.body;
         }
@@ -21,38 +12,26 @@ var aufgabe232;
             return this.leg;
         }
     }
-    let f = new Human;
     class Humans {
         constructor() {
-            this.heads = aufgabe232.koepfe;
-            this.bodies = aufgabe232.koerper;
-            this.legs = aufgabe232.beine;
-        }
-        getallhead() {
-            return this.heads;
-        }
-        getallbodies() {
-            return this.bodies;
-        }
-        getalllegs() {
-            return this.legs;
+            let humanparts = aufgabe232.dataJSonString();
+            let parts = JSON.parse(humanparts);
+            this.heads = parts.top;
+            this.bodies = parts.middle;
+            this.legs = parts.bottom;
         }
         clickFunction(evt) {
             let selection = evt.target.innerHTML;
-            let bodyPart = evt.target.id;
-            console.log(selection, bodyPart);
-            //localStorage.setItem(Selection);
             if (document.getElementById("head") != null) {
-                f.setHead(selection);
-                //localStorage.setItem("head", Selection);
+                sessionStorage.setItem("head", selection);
                 window.location.replace("body.html");
             }
             else if (document.getElementById("body") != null) {
-                f.setBody(selection);
+                sessionStorage.setItem("body", selection);
                 window.location.replace("legs.html");
             }
             else if (document.getElementById("leg") != null) {
-                f.setLeg(selection);
+                sessionStorage.setItem("leg", selection);
                 window.location.replace("human.html");
             }
         }
@@ -84,11 +63,26 @@ var aufgabe232;
                     document.getElementById("beine").appendChild(knopf);
                 }
             }
+            if (document.getElementById("example") != null) {
+                sessionStorage.clear();
+            }
+            else {
+                let list = document.createElement("ul");
+                document.getElementById("finish").appendChild(list);
+                let listele1 = document.createElement("li");
+                let listele2 = document.createElement("li");
+                let listele3 = document.createElement("li");
+                listele1.innerHTML = sessionStorage.getItem("head");
+                list.appendChild(listele1);
+                listele2.innerHTML = sessionStorage.getItem("body");
+                list.appendChild(listele2);
+                listele3.innerHTML = sessionStorage.getItem("leg");
+                list.appendChild(listele3);
+            }
         }
     }
-    aufgabe232.Humans = Humans;
     let d = new Humans;
-    d.makelist();
-    console.log(f.getLeg);
+    if (document)
+        d.makelist();
 })(aufgabe232 || (aufgabe232 = {}));
 //# sourceMappingURL=script.js.map
