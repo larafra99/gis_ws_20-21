@@ -76,7 +76,7 @@ namespace aufgabe232 {
                 }
             }
             else if (document.getElementById("response") != null) {
-                let query: URLSearchParams = new URLSearchParams(<any>sessionStorage);
+                let query: URLSearchParams = new URLSearchParams(sessionStorage);
                 let url: string = "http://gis-communication.herokuapp.com/";
                 url = url + "?" + query.toString();
                 console.log(url);
