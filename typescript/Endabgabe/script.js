@@ -59,7 +59,7 @@ var aufgabe232;
             }
             else if (document.getElementById("response") != null) {
                 let query = new URLSearchParams(sessionStorage);
-                let url = "http://gis-communication.herokuapp.com/";
+                let url = "https://gis-communication.herokuapp.com/";
                 url = url + "?" + query.toString();
                 console.log(url);
                 let respond = await fetch(url);
