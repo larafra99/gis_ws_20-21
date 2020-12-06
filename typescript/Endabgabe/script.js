@@ -88,19 +88,23 @@ var aufgabe232;
                 buttonStart.addEventListener("click", this.clickStart);
             }
             else {
-                let list = document.createElement("ul");
+                /*let list: HTMLElement = document.createElement("ul");
                 document.getElementById("finish").appendChild(list);
-                let listele1 = document.createElement("li");
-                let listele2 = document.createElement("li");
-                let listele3 = document.createElement("li");
-                let imag1 = document.createElement("img");
-                let imag2 = document.createElement("img");
-                let imag3 = document.createElement("img");
+                let listele1: HTMLElement = document.createElement("li");
+                let listele2: HTMLElement = document.createElement("li");
+                let listele3: HTMLElement = document.createElement("li");
+                let imag1: HTMLImageElement = document.createElement("img");
+                let imag2: HTMLImageElement = document.createElement("img");
+                let imag3: HTMLImageElement = document.createElement("img");
                 document.getElementById("restart");
-                let button = document.createElement("button");
+                let button: HTMLElement = document.createElement("button");
                 button.innerHTML = "restart";
                 document.getElementById("restart").appendChild(button);
                 button.addEventListener("click", this.clickRestart);
+
+
+                
+                
                 if (sessionStorage.getItem("head") != null) {
                     list.appendChild(listele1);
                     listele1.appendChild(imag1);
@@ -114,6 +118,41 @@ var aufgabe232;
                 if (sessionStorage.getItem("leg") != null) {
                     list.appendChild(listele3);
                     listele3.appendChild(imag3);
+                    imag3.src = sessionStorage.getItem("leg");
+                }
+                */
+                let tabl = document.createElement("table");
+                document.getElementById("finish").appendChild(tabl);
+                let tablerow1 = document.createElement("tr");
+                let tablerow2 = document.createElement("tr");
+                let tablerow3 = document.createElement("tr");
+                let tableele1 = document.createElement("td");
+                let tableele2 = document.createElement("td");
+                let tableele3 = document.createElement("td");
+                let imag1 = document.createElement("img");
+                let imag2 = document.createElement("img");
+                let imag3 = document.createElement("img");
+                document.getElementById("restart");
+                let button = document.createElement("button");
+                button.innerHTML = "restart";
+                document.getElementById("restart").appendChild(button);
+                button.addEventListener("click", this.clickRestart);
+                if (sessionStorage.getItem("head") != null) {
+                    tabl.appendChild(tablerow1);
+                    tablerow1.appendChild(tableele1);
+                    tableele1.appendChild(imag1);
+                    imag1.src = sessionStorage.getItem("head");
+                }
+                if (sessionStorage.getItem("body") != null) {
+                    tabl.appendChild(tablerow2);
+                    tablerow2.appendChild(tableele2);
+                    tableele2.appendChild(imag2);
+                    imag2.src = sessionStorage.getItem("body");
+                }
+                if (sessionStorage.getItem("leg") != null) {
+                    tabl.appendChild(tablerow3);
+                    tablerow3.appendChild(tableele3);
+                    tableele3.appendChild(imag3);
                     imag3.src = sessionStorage.getItem("leg");
                 }
             }

@@ -17,7 +17,10 @@ ul{
     list-style:none;
     
 }
-
+li{
+   display: block;
+   padding: 12px 12px;
+}
 button{
     width: 150px;
     height: 40px;
@@ -32,4 +35,16 @@ a{
 img {
     width: 300px;
     height: auto;
+}
+table{
+    margin:auto;
+    border-spacing: 0;
+    border:0;
+    border-collapse: collapse;
+}
+td{
+    padding: 0;
+}
+tr{
+    padding: 0;
 }
