@@ -8,7 +8,7 @@
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "start": " node package.json"
+    "start": "node Datenbanken/bspcode.js"
   },
   "repository": {
     "type": "git",
