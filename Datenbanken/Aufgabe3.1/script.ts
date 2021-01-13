@@ -4,7 +4,7 @@ let btSend: HTMLButtonElement = <HTMLButtonElement>document.getElementById("send
 btSend.addEventListener("click", send);
 
 async function send(): Promise<void> {
-    let url: string = "https://gis2020jw.herokuapp.com/";
+    let url: string = "https://gisws2021.herokuapp.com/";
     let query: URLSearchParams = new URLSearchParams(<any>formData);
     url = url + "?" + query.toString();
     let response: Response = await fetch(url);
