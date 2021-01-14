@@ -14,7 +14,7 @@ var Aufgabe3_2;
     server.addListener("listening", handleListen);
     server.listen(port);
     function handleListen() {
-        console.log("Listening");
+        console.log(" I am listening");
     }
     function handleRequest(_request, _response) {
         console.log("I hear voices!");
