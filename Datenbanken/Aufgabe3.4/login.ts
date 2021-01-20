@@ -15,9 +15,10 @@ namespace Aufgabe3_4 {
         document.getElementById("response").appendChild(responseText);
 
         //Fehler interface bauen
-        
+        let status: number = response.status;
+        console.log(status);
         if (response.status != 200) { // 200 = status ok
-            responseText.innerHTML = " Ein Fehler ist aufgetreten, bitte füllen sie alle Felder aus";
+            responseText.innerHTML = " Ein Fehler ist aufgetreten";
         }
         else {
             console.log(response.text());

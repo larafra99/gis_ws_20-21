@@ -7,7 +7,7 @@
     "@types/node": "^14.14.12"
   },
   "scripts": {
-    "start": "node Datenbanken/Aufgabe3.2/script.js"
+    "start": "node Datenbanken/Aufgabe3.4/login.js"
   },
   "repository": {
     "type": "git",
