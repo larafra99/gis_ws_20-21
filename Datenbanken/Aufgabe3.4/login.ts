@@ -12,6 +12,7 @@ namespace Aufgabe3_4 {
         let response: Response = await fetch(url);
 
         let responseText: HTMLElement = document.createElement("p");
+        document.getElementById("response").appendChild(responseText);
 
         //Fehler interface bauen
         

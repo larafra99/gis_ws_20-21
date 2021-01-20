@@ -11,6 +11,7 @@ var Aufgabe3_4;
         url = url + "?" + query.toString();
         let response = await fetch(url);
         let responseText = document.createElement("p");
+        document.getElementById("response").appendChild(responseText);
         //Fehler interface bauen
         if (response.status != 200) { // 200 = status ok
             responseText.innerHTML = " Ein Fehler ist aufgetreten, bitte füllen sie alle Felder aus";
