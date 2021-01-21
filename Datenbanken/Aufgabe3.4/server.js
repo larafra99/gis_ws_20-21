@@ -6,15 +6,19 @@ const Url = require("url");
 const Mongo = require("mongodb");
 var Aufgabe3_4;
 (function (Aufgabe3_4) {
-    let user;
+    let collection;
+    //Port erstellen
     let port = Number(process.env.PORT);
     if (port == undefined) {
         port = 8100;
     }
-    let dataBaseUrl = "mongodb://localhost: 27017";
+    //let dataBaseUrllocal: string = "mongodb://localhost: 27017";
+    let dataBaseUrl = "mongodb+srv://Reader:Database123@gisws20-21.a07b1mongodb.net/Endabgabe?retryWrites=true&w=majority";
     console.log("Starting server");
+    //Aufruf der Funktionen
     startServer(port);
     connectToDatabase(dataBaseUrl);
+    //Server erstellen
     function startServer(_port) {
         let server = Http.createServer();
         server.addListener("request", handleRequest);
@@ -25,8 +29,8 @@ var Aufgabe3_4;
         let options = { useNewUrlParser: true, useUnifiedTopology: true };
         let mongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
-        user = mongoClient.db("Database").collection("Users");
-        console.log("Database connection sucessfull", user != undefined);
+        collection = mongoClient.db("Endabgabe").collection("Users");
+        console.log("Database connection sucessfull", collection != undefined);
     }
     function handleListen() {
         console.log(" I am listening");
@@ -40,14 +44,34 @@ var Aufgabe3_4;
             for (let key in q.query) {
                 _response.write(key + ":" + q.query[key] + "<br/>");
             }
+            if (q.pathname == "\login") {
+                console.log("einloggen");
+                einloggen();
+            }
+            else if (q.pathname == "\register") {
+                console.log("registieren");
+                //let users: User = {"benutzername": benutzername, "email": email , "passwort": passwort};
+                //registerien(users);
+            }
+            else if (q.pathname == "\clients") {
+                console.log("benutzer");
+                showClients();
+            }
             let uni = JSON.stringify(q.query);
             _response.write(uni);
             //unidata(uni);
         }
         _response.end();
     }
-    function unidata(_uni) {
-        //unidata.insert(_uni);
+    function registerien(_client) {
+    }
+    function showClients() {
+    }
+    async function einloggen() {
+        let password = User.passwort;
+        let _email = User.email;
+        let username = User.benutzername;
+        let check = await user.find({ _email, password, username });
     }
 })(Aufgabe3_4 = exports.Aufgabe3_4 || (exports.Aufgabe3_4 = {}));
 //# sourceMappingURL=server.js.map

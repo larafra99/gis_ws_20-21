@@ -13,14 +13,19 @@ var Aufgabe3_4;
         let responseText = document.createElement("p");
         document.getElementById("response").appendChild(responseText);
         //Fehler interface bauen
-        let status = response.status;
+        let text = await response.text();
+        console.log(text);
+        //let statusCode: StatusCode = Number.parseInt(text);
+        //console.log(statusCode);
+        let answer = await response.json();
+        let status = answer.status;
         console.log(status);
         if (response.status != 200) { // 200 = status ok
-            responseText.innerHTML = " Ein Fehler ist aufgetreten";
+            responseText.innerText = " Ein Fehler ist aufgetreten";
         }
-        else {
-            console.log(response.text());
-        }
+        //else {
+        //console.log(response.text());
+        //}
     }
 })(Aufgabe3_4 || (Aufgabe3_4 = {}));
 //# sourceMappingURL=login.js.map
