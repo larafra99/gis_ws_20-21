@@ -28,7 +28,7 @@ export namespace Aufgabe3_4 {
         port = 8100; 
     }
 
-    //let dataBaseUrllocal: string = "mongodb://localhost: 27017";
+    //let dataBaseUrl: string = "mongodb://localhost: 27017";
     let dataBaseUrl: string = "mongodb+srv://Reader:Database123@gisws20-21.a07b1mongodb.net/Endabgabe?retryWrites=true&w=majority";
     console.log("Starting server");
 
@@ -64,24 +64,24 @@ export namespace Aufgabe3_4 {
 
         if (_request.url) {
             let q: Url.UrlWithParsedQuery = Url.parse(_request.url, true); 
-            console.log(q);    
+            //console.log(q);    
             for (let key in q.query) {
-                console.log(key);
+                //console.log(key);
                 _response.write (key + ":" + q.query[key] + "<br/>");
                
             }
-            if (q.path == "\login.html") {
+            if (q.pathname == "\login.html") {
                 console.log("einloggen");
                 einloggen();
 
             }
-            else if (q.path == "\register.html") {
+            else if (q.pathname == "\register.html") {
                 console.log("registieren");
                 //let users: User = {"benutzername": benutzername, "email": email , "passwort": passwort};
                 //registerien(users);
 
             }
-            else if (q.path == "\clients.html") {
+            else if (q.pathname == "\clients.html") {
                 console.log("benutzer");
                 showClients();
             }
