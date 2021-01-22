@@ -72,7 +72,6 @@ export namespace Aufgabe3_4 {
 
             if (q.pathname == "/login.html") {
                 console.log("einloggen");
-                //console.log(parameter);
                 let result: boolean =  await einloggen(parameter.email as string , parameter.password as string);
                 if (result) {
                     _response.write("Sie sind eingelogt");
@@ -102,8 +101,7 @@ export namespace Aufgabe3_4 {
 
             else if (q.pathname == "/clients.html") {
                 console.log("benutzer");
-                
-                _response.write(showClients());
+                _response.write( await showClients());
             }
         }
 

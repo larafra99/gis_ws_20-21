@@ -47,7 +47,6 @@ var Aufgabe3_4;
             let parameter = q.query;
             if (q.pathname == "/login.html") {
                 console.log("einloggen");
-                //console.log(parameter);
                 let result = await einloggen(parameter.email, parameter.password);
                 if (result) {
                     _response.write("Sie sind eingelogt");
@@ -74,7 +73,7 @@ var Aufgabe3_4;
             }
             else if (q.pathname == "/clients.html") {
                 console.log("benutzer");
-                _response.write(showClients());
+                _response.write(await showClients());
             }
         }
         _response.end();
