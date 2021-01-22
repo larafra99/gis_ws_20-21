@@ -5,7 +5,8 @@ import { ParsedUrlQuery } from "querystring";
 export namespace Aufgabe3_4 {
     
     interface User {
-        benutzername: string;
+        vorname: string;
+        nachname: string;
         email: string;
         passwort: string;    
     }
@@ -67,10 +68,10 @@ export namespace Aufgabe3_4 {
             for (let key in q.query) {
                 _response.write (key + ":" + q.query[key] + "<br/>");   
             }
+            let parameter: ParsedUrlQuery = q.query;
 
             if (q.pathname == "/login.html") {
                 console.log("einloggen");
-                let parameter: ParsedUrlQuery = q.query;
                 console.log(parameter);
                 let result: boolean =  await einloggen(parameter.email as string , parameter.password as string);
                 if (result) {
@@ -78,15 +79,27 @@ export namespace Aufgabe3_4 {
 
                 }
                 else {
-                    _response.write("Fehler aufgetreten");
+                    _response.write("Fehler aufgetreten Bitte überprüfen sie ihre daten");
                 }
                 
             }
 
             else if (q.pathname == "/register.html") {
                 console.log("registieren");
-                //let users: User = {"benutzername": benutzername, "email": email , "passwort": passwort};
-                //registerien(users);
+                let users: User = {
+                    vorname: parameter.vorname as string,
+                    nachname: parameter.nachname as string,
+                    email: parameter.email as string,
+                    passwort: parameter.password as string
+                };
+                let resultreg: boolean = await registerien(users);
+                if (resultreg) {
+                    _response.write("Nutzer wurde erstellt");
+                }
+                else {
+                    _response.write("Emailadresse ist schon vergeben bitte nutzen sie Login");
+                }
+                
             }
 
             else if (q.pathname == "/clients.html") {
@@ -97,8 +110,15 @@ export namespace Aufgabe3_4 {
 
         _response.end();
     }
-    function registerien(_client: User): void {
-        console.log("hi");
+    async function registerien(_client: User): Promise<boolean> { 
+        let _suchmail: number = await collection.countDocuments({"email": _client.email});
+        if (_suchmail > 0) {
+            return false;
+        }
+        else {
+            await collection.insertOne(_client);
+            return true;
+        }
 
     }
     function showClients(): void {
@@ -107,8 +127,8 @@ export namespace Aufgabe3_4 {
     }
     async function einloggen(_email: string, _password: string): Promise<boolean> {
         //let daten: Mongo.CollationDocument = await collection.findOne({email: _email, password: _password});
-        let daten: string = "hi";
-        if (daten) {
+        let daten: number = await collection.countDocuments({"email": _email, "password": _password});
+        if (daten > 0) {
             return true;
         }
         else {
