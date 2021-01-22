@@ -113,7 +113,7 @@ export namespace Aufgabe3_4 {
             return false;
         }
         else {
-            await collection.insertOne(_client);
+            //await collection.insertOne(_client);
             return true;
         }
 
