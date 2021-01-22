@@ -46,16 +46,16 @@ var Aufgabe3_4;
                 //console.log(key);
                 _response.write(key + ":" + q.query[key] + "<br/>");
             }
-            if (q.pathname == "\login.html") {
+            if (q.pathname == "/login.html") {
                 console.log("einloggen");
                 einloggen();
             }
-            else if (q.pathname == "\register.html") {
+            else if (q.pathname == "/register.html") {
                 console.log("registieren");
                 //let users: User = {"benutzername": benutzername, "email": email , "passwort": passwort};
                 //registerien(users);
             }
-            else if (q.pathname == "\clients.html") {
+            else if (q.pathname == "/clients.html") {
                 console.log("benutzer");
                 showClients();
             }
