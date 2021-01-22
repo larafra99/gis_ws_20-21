@@ -60,24 +60,28 @@ export namespace Aufgabe3_4 {
         console.log("I hear voices!"); 
         _response.setHeader("content-type", "text/html; charset=utf-8"); 
         _response.setHeader("Access-Control-Allow-Origin", "*"); 
+        console.log(url);
 
         if (_request.url) {
-            let q: Url.UrlWithParsedQuery = Url.parse(_request.url, true);     
+            let q: Url.UrlWithParsedQuery = Url.parse(_request.url, true); 
+            console.log(q);    
             for (let key in q.query) {
+                console.log(key);
                 _response.write (key + ":" + q.query[key] + "<br/>");
+               
             }
-            if (q.pathname == "\login") {
+            if (q.path == "\login.html") {
                 console.log("einloggen");
                 einloggen();
 
             }
-            else if (q.pathname == "\register") {
+            else if (q.path == "\register.html") {
                 console.log("registieren");
                 //let users: User = {"benutzername": benutzername, "email": email , "passwort": passwort};
                 //registerien(users);
 
             }
-            else if (q.pathname == "\clients") {
+            else if (q.path == "\clients.html") {
                 console.log("benutzer");
                 showClients();
             }
