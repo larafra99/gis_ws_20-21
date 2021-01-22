@@ -46,7 +46,7 @@ var Aufgabe3_4;
                 //console.log(key);
                 _response.write(key + ":" + q.query[key] + "<br/>");
             }
-            if (q.pathname == "\login.html") {
+            if (q.path == "\login.html") {
                 console.log("einloggen");
                 einloggen();
             }
