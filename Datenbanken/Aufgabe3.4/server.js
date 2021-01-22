@@ -50,7 +50,12 @@ var Aufgabe3_4;
                 let parameter = q.query;
                 console.log(parameter);
                 let result = await einloggen(parameter.email, parameter.password);
-                _response.write(result);
+                if (result) {
+                    _response.write("Sie sind eingelogt");
+                }
+                else {
+                    _response.write("Fehler aufgetreten");
+                }
             }
             else if (q.pathname == "/register.html") {
                 console.log("registieren");
@@ -65,8 +70,10 @@ var Aufgabe3_4;
         _response.end();
     }
     function registerien(_client) {
+        console.log("hi");
     }
     function showClients() {
+        console.log("hi");
     }
     async function einloggen(_email, _password) {
         //let daten: Mongo.CollationDocument = await collection.findOne({email: _email, password: _password});
@@ -75,7 +82,7 @@ var Aufgabe3_4;
             return true;
         }
         else {
-            return true;
+            return false;
         }
     }
 })(Aufgabe3_4 = exports.Aufgabe3_4 || (exports.Aufgabe3_4 = {}));

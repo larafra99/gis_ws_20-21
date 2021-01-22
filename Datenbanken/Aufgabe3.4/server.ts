@@ -73,7 +73,14 @@ export namespace Aufgabe3_4 {
                 let parameter: ParsedUrlQuery = q.query;
                 console.log(parameter);
                 let result: boolean =  await einloggen(parameter.email as string , parameter.password as string);
-                _response.write(result);
+                if (result) {
+                    _response.write("Sie sind eingelogt");
+
+                }
+                else {
+                    _response.write("Fehler aufgetreten");
+                }
+                
             }
 
             else if (q.pathname == "/register.html") {
@@ -90,10 +97,12 @@ export namespace Aufgabe3_4 {
 
         _response.end();
     }
-    function registerien(_client: User) {
+    function registerien(_client: User): void {
+        console.log("hi");
 
     }
-    function showClients() {
+    function showClients(): void {
+        console.log("hi");
 
     }
     async function einloggen(_email: string, _password: string): Promise<boolean> {
@@ -103,7 +112,7 @@ export namespace Aufgabe3_4 {
             return true;
         }
         else {
-            return true;
+            return false;
         }
         
       
