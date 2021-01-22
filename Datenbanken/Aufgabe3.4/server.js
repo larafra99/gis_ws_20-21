@@ -74,6 +74,7 @@ var Aufgabe3_4;
             else if (q.pathname == "/clients.html") {
                 console.log("benutzer");
                 let listUser = await showClients();
+                console.log(listUser.toString());
                 _response.write(listUser.toString());
             }
         }
