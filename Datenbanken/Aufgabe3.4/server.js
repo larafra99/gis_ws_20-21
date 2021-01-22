@@ -41,12 +41,12 @@ var Aufgabe3_4;
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
             let q = Url.parse(_request.url, true);
-            console.log(q.path);
+            console.log(q.pathname);
             for (let key in q.query) {
                 //console.log(key);
                 _response.write(key + ":" + q.query[key] + "<br/>");
             }
-            if (q.path == "\login.html") {
+            if (q.pathname == "\login.html") {
                 console.log("einloggen");
                 einloggen();
             }
