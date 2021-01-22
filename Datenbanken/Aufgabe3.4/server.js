@@ -59,8 +59,8 @@ var Aufgabe3_4;
             else if (q.pathname == "/register.html") {
                 console.log("registieren");
                 let users = {
-                    vorname: parameter.vorname,
-                    nachname: parameter.nachname,
+                    vorname: parameter.fname,
+                    nachname: parameter.lname,
                     email: parameter.email,
                     passwort: parameter.password
                 };
@@ -85,7 +85,7 @@ var Aufgabe3_4;
             return false;
         }
         else {
-            //await collection.insertOne(_client);
+            await collection.insertOne(_client);
             return true;
         }
     }

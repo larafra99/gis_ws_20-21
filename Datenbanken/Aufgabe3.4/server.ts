@@ -84,8 +84,8 @@ export namespace Aufgabe3_4 {
             else if (q.pathname == "/register.html") {
                 console.log("registieren");
                 let users: User = {
-                    vorname: parameter.vorname as string,
-                    nachname: parameter.nachname as string,
+                    vorname: parameter.fname as string,
+                    nachname: parameter.lname as string,
                     email: parameter.email as string,
                     passwort: parameter.password as string
                 };
@@ -113,7 +113,7 @@ export namespace Aufgabe3_4 {
             return false;
         }
         else {
-            //await collection.insertOne(_client);
+            await collection.insertOne(_client);
             return true;
         }
 
