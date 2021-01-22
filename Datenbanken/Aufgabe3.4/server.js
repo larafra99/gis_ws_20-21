@@ -53,7 +53,7 @@ var Aufgabe3_4;
                     _response.write("Sie sind eingelogt");
                 }
                 else {
-                    _response.write("Fehler aufgetreten Bitte überprüfen sie ihre daten");
+                    _response.write("Fehler aufgetreten Bitte überprüfen sie ihre Daten");
                 }
             }
             else if (q.pathname == "/register.html") {
@@ -93,7 +93,7 @@ var Aufgabe3_4;
         console.log("hi");
     }
     async function einloggen(_email, _password) {
-        let daten = await collection.countDocuments({ "email": _email, "password": _password });
+        let daten = await collection.countDocuments({ "email": _email, "passwort": _password });
         if (daten > 0) {
             return true;
         }

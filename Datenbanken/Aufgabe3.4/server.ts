@@ -77,7 +77,7 @@ export namespace Aufgabe3_4 {
                     _response.write("Sie sind eingelogt");
                 }
                 else {
-                    _response.write("Fehler aufgetreten Bitte überprüfen sie ihre daten");
+                    _response.write("Fehler aufgetreten Bitte überprüfen sie ihre Daten");
                 }   
             }
 
@@ -123,7 +123,7 @@ export namespace Aufgabe3_4 {
 
     }
     async function einloggen(_email: string, _password: string): Promise<boolean> {
-        let daten: number = await collection.countDocuments({"email": _email, "password": _password});
+        let daten: number = await collection.countDocuments({"email": _email, "passwort": _password});
         if (daten > 0) {
             return true;
         }
