@@ -43,11 +43,12 @@ var Aufgabe3_4;
             let q = Url.parse(_request.url, true);
             console.log(q.pathname);
             for (let key in q.query) {
-                //console.log(key);
                 _response.write(key + ":" + q.query[key] + "<br/>");
             }
             if (q.pathname == "/login.html") {
                 console.log("einloggen");
+                let parameter = q.query;
+                console.log(parameter);
                 einloggen();
             }
             else if (q.pathname == "/register.html") {
@@ -61,7 +62,6 @@ var Aufgabe3_4;
             }
             let uni = JSON.stringify(q.query);
             _response.write(uni);
-            //unidata(uni);
         }
         _response.end();
     }
@@ -70,10 +70,6 @@ var Aufgabe3_4;
     function showClients() {
     }
     async function einloggen() {
-        let password = User.passwort;
-        let _email = User.email;
-        let username = User.benutzername;
-        let check = await user.find({ _email, password, username });
     }
 })(Aufgabe3_4 = exports.Aufgabe3_4 || (exports.Aufgabe3_4 = {}));
 //# sourceMappingURL=server.js.map

@@ -1,6 +1,7 @@
 import * as Http from "http";
 import * as Url from "url";
 import * as Mongo from "mongodb";
+import { ParsedUrlQuery } from "querystring";
 
 export namespace Aufgabe3_4 {
     
@@ -65,21 +66,22 @@ export namespace Aufgabe3_4 {
             let q: Url.UrlWithParsedQuery = Url.parse(_request.url, true); 
             console.log(q.pathname);    
             for (let key in q.query) {
-                //console.log(key);
-                _response.write (key + ":" + q.query[key] + "<br/>");
-               
+                _response.write (key + ":" + q.query[key] + "<br/>");   
             }
+
             if (q.pathname == "/login.html") {
                 console.log("einloggen");
+                let parameter: ParsedUrlQuery = q.query;
+                console.log(parameter);
                 einloggen();
-
             }
+
             else if (q.pathname == "/register.html") {
                 console.log("registieren");
                 //let users: User = {"benutzername": benutzername, "email": email , "passwort": passwort};
                 //registerien(users);
-
             }
+
             else if (q.pathname == "/clients.html") {
                 console.log("benutzer");
                 showClients();
@@ -87,8 +89,6 @@ export namespace Aufgabe3_4 {
     
             let uni: string = JSON.stringify(q.query);
             _response.write(uni);
-
-            //unidata(uni);
         }
 
         _response.end();
@@ -100,10 +100,7 @@ export namespace Aufgabe3_4 {
 
     }
     async function einloggen() {
-        let password = User.passwort;
-        let _email = User.email;
-        let username = User.benutzername;
-        let check: Mongo.CollationDocument = await user.find({_email, password, username});
+      
 
 
 

@@ -14,8 +14,8 @@ namespace Aufgabe3_4 {
         console.log(url);
         let response: Response = await fetch(url);
         let responseText: string = await response.text();
-        console.log(response);
-        console.log(responseText);
+        //console.log(response);
+        //console.log(responseText);
 
         let loginText: HTMLElement = document.createElement("p");
         document.getElementById("response").appendChild(loginText);
