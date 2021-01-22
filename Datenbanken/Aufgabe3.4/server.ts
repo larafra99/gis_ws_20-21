@@ -101,7 +101,8 @@ export namespace Aufgabe3_4 {
 
             else if (q.pathname == "/clients.html") {
                 console.log("benutzer");
-                _response.write( await showClients());
+                let listUser: User[] = await showClients();
+                _response.write( listUser.toString() );
             }
         }
 
