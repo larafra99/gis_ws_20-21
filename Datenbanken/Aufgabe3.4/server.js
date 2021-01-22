@@ -69,7 +69,8 @@ var Aufgabe3_4;
     function showClients() {
     }
     async function einloggen(_email, _password) {
-        let daten = await collection.findOne({ email: _email, password: _password });
+        //let daten: Mongo.CollationDocument = await collection.findOne({email: _email, password: _password});
+        let daten = "hi";
         if (daten) {
             return true;
         }

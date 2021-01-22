@@ -97,7 +97,8 @@ export namespace Aufgabe3_4 {
 
     }
     async function einloggen(_email: string, _password: string): Promise<boolean> {
-        let daten: Mongo.CollationDocument = await collection.findOne({email: _email, password: _password});
+        //let daten: Mongo.CollationDocument = await collection.findOne({email: _email, password: _password});
+        let daten: string = "hi";
         if (daten) {
             return true;
         }
