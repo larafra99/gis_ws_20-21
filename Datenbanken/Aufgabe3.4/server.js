@@ -41,14 +41,13 @@ var Aufgabe3_4;
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
             let q = Url.parse(_request.url, true);
-            console.log(q.pathname);
             for (let key in q.query) {
                 _response.write(key + ":" + q.query[key] + "<br/>");
             }
             let parameter = q.query;
             if (q.pathname == "/login.html") {
                 console.log("einloggen");
-                console.log(parameter);
+                //console.log(parameter);
                 let result = await einloggen(parameter.email, parameter.password);
                 if (result) {
                     _response.write("Sie sind eingelogt");
@@ -86,7 +85,7 @@ var Aufgabe3_4;
             return false;
         }
         else {
-            await collection.insertOne(_client);
+            //await collection.insertOne(_client);
             return true;
         }
     }
@@ -94,7 +93,6 @@ var Aufgabe3_4;
         console.log("hi");
     }
     async function einloggen(_email, _password) {
-        //let daten: Mongo.CollationDocument = await collection.findOne({email: _email, password: _password});
         let daten = await collection.countDocuments({ "email": _email, "password": _password });
         if (daten > 0) {
             return true;

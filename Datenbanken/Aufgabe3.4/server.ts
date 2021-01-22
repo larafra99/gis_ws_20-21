@@ -63,8 +63,7 @@ export namespace Aufgabe3_4 {
         _response.setHeader("Access-Control-Allow-Origin", "*"); 
 
         if (_request.url) {
-            let q: Url.UrlWithParsedQuery = Url.parse(_request.url, true); 
-            console.log(q.pathname);    
+            let q: Url.UrlWithParsedQuery = Url.parse(_request.url, true);    
             for (let key in q.query) {
                 _response.write (key + ":" + q.query[key] + "<br/>");   
             }
@@ -72,7 +71,7 @@ export namespace Aufgabe3_4 {
 
             if (q.pathname == "/login.html") {
                 console.log("einloggen");
-                console.log(parameter);
+                //console.log(parameter);
                 let result: boolean =  await einloggen(parameter.email as string , parameter.password as string);
                 if (result) {
                     _response.write("Sie sind eingelogt");
@@ -116,7 +115,7 @@ export namespace Aufgabe3_4 {
             return false;
         }
         else {
-            await collection.insertOne(_client);
+            //await collection.insertOne(_client);
             return true;
         }
 
@@ -126,7 +125,6 @@ export namespace Aufgabe3_4 {
 
     }
     async function einloggen(_email: string, _password: string): Promise<boolean> {
-        //let daten: Mongo.CollationDocument = await collection.findOne({email: _email, password: _password});
         let daten: number = await collection.countDocuments({"email": _email, "password": _password});
         if (daten > 0) {
             return true;
