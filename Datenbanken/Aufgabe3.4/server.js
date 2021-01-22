@@ -35,7 +35,7 @@ var Aufgabe3_4;
     function handleListen() {
         console.log(" I am listening");
     }
-    function handleRequest(_request, _response) {
+    async function handleRequest(_request, _response) {
         console.log("I hear voices!");
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
@@ -49,7 +49,8 @@ var Aufgabe3_4;
                 console.log("einloggen");
                 let parameter = q.query;
                 console.log(parameter);
-                einloggen();
+                let result = await einloggen(parameter.email, parameter.password);
+                _response.write(result);
             }
             else if (q.pathname == "/register.html") {
                 console.log("registieren");
@@ -60,8 +61,6 @@ var Aufgabe3_4;
                 console.log("benutzer");
                 showClients();
             }
-            let uni = JSON.stringify(q.query);
-            _response.write(uni);
         }
         _response.end();
     }
@@ -69,7 +68,14 @@ var Aufgabe3_4;
     }
     function showClients() {
     }
-    async function einloggen() {
+    async function einloggen(_email, _password) {
+        let daten = await collection.findOne({ email: _email, password: _password });
+        if (daten) {
+            return true;
+        }
+        else {
+            return true;
+        }
     }
 })(Aufgabe3_4 = exports.Aufgabe3_4 || (exports.Aufgabe3_4 = {}));
 //# sourceMappingURL=server.js.map

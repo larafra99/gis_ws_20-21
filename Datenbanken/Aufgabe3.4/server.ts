@@ -2,7 +2,6 @@ import * as Http from "http";
 import * as Url from "url";
 import * as Mongo from "mongodb";
 import { ParsedUrlQuery } from "querystring";
-
 export namespace Aufgabe3_4 {
     
     interface User {
@@ -57,7 +56,7 @@ export namespace Aufgabe3_4 {
         console.log(" I am listening"); 
     }
 
-    function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
+    async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
         console.log("I hear voices!"); 
         _response.setHeader("content-type", "text/html; charset=utf-8"); 
         _response.setHeader("Access-Control-Allow-Origin", "*"); 
@@ -73,7 +72,8 @@ export namespace Aufgabe3_4 {
                 console.log("einloggen");
                 let parameter: ParsedUrlQuery = q.query;
                 console.log(parameter);
-                einloggen();
+                let result: boolean =  await einloggen(parameter.email as string , parameter.password as string);
+                _response.write(result);
             }
 
             else if (q.pathname == "/register.html") {
@@ -86,9 +86,6 @@ export namespace Aufgabe3_4 {
                 console.log("benutzer");
                 showClients();
             }
-    
-            let uni: string = JSON.stringify(q.query);
-            _response.write(uni);
         }
 
         _response.end();
@@ -99,7 +96,15 @@ export namespace Aufgabe3_4 {
     function showClients() {
 
     }
-    async function einloggen() {
+    async function einloggen(_email: string, _password: string): Promise<boolean> {
+        let daten: Mongo.CollationDocument = await collection.findOne({email: _email, password: _password});
+        if (daten) {
+            return true;
+        }
+        else {
+            return true;
+        }
+        
       
 
 
