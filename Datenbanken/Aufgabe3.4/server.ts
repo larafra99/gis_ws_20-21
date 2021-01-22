@@ -2,6 +2,7 @@ import * as Http from "http";
 import * as Url from "url";
 import * as Mongo from "mongodb";
 import { ParsedUrlQuery } from "querystring";
+import { userInfo } from "os";
 export namespace Aufgabe3_4 {
     
     interface User {
@@ -101,7 +102,8 @@ export namespace Aufgabe3_4 {
 
             else if (q.pathname == "/clients.html") {
                 console.log("benutzer");
-                showClients();
+                
+                _response.write(showClients());
             }
         }
 
@@ -118,8 +120,9 @@ export namespace Aufgabe3_4 {
         }
 
     }
-    async function showClients(): Promise<void> {
-        console.log("hi");
+    async function showClients(): Promise<User[]> {
+        let allUser: User[] = await collection.find().toArray();
+        return allUser;
 
     }
     async function einloggen(_email: string, _password: string): Promise<boolean> {

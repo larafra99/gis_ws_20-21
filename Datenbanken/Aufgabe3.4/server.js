@@ -74,7 +74,7 @@ var Aufgabe3_4;
             }
             else if (q.pathname == "/clients.html") {
                 console.log("benutzer");
-                showClients();
+                _response.write(showClients());
             }
         }
         _response.end();
@@ -90,7 +90,8 @@ var Aufgabe3_4;
         }
     }
     async function showClients() {
-        console.log("hi");
+        let allUser = await collection.find().toArray();
+        return allUser;
     }
     async function einloggen(_email, _password) {
         let daten = await collection.countDocuments({ "email": _email, "passwort": _password });
