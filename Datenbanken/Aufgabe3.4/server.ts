@@ -30,7 +30,7 @@ export namespace Aufgabe3_4 {
     }
 
     //let dataBaseUrl: string = "mongodb://localhost: 27017";
-    let dataBaseUrl: string = "mongodb+srv://Reader:Database123@gisws20-21.a07b1mongodb.net/Endabgabe?retryWrites=true&w=majority";
+    let dataBaseUrl: string = "mongodb+srv://Reader:Database123@gisws20-21.a07b1.mongodb.net/Endabgabe?retryWrites=true&w=majority";
     console.log("Starting server");
 
     //Aufruf der Funktionen
@@ -75,12 +75,10 @@ export namespace Aufgabe3_4 {
                 let result: boolean =  await einloggen(parameter.email as string , parameter.password as string);
                 if (result) {
                     _response.write("Sie sind eingelogt");
-
                 }
                 else {
                     _response.write("Fehler aufgetreten Bitte überprüfen sie ihre daten");
-                }
-                
+                }   
             }
 
             else if (q.pathname == "/register.html") {
@@ -120,7 +118,7 @@ export namespace Aufgabe3_4 {
         }
 
     }
-    function showClients(): void {
+    async function showClients(): Promise<void> {
         console.log("hi");
 
     }

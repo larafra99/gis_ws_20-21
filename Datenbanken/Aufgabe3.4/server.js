@@ -13,7 +13,7 @@ var Aufgabe3_4;
         port = 8100;
     }
     //let dataBaseUrl: string = "mongodb://localhost: 27017";
-    let dataBaseUrl = "mongodb+srv://Reader:Database123@gisws20-21.a07b1mongodb.net/Endabgabe?retryWrites=true&w=majority";
+    let dataBaseUrl = "mongodb+srv://Reader:Database123@gisws20-21.a07b1.mongodb.net/Endabgabe?retryWrites=true&w=majority";
     console.log("Starting server");
     //Aufruf der Funktionen
     startServer(port);
@@ -89,7 +89,7 @@ var Aufgabe3_4;
             return true;
         }
     }
-    function showClients() {
+    async function showClients() {
         console.log("hi");
     }
     async function einloggen(_email, _password) {

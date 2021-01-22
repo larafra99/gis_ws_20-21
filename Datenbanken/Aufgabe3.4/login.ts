@@ -19,7 +19,7 @@ namespace Aufgabe3_4 {
 
         let loginText: HTMLElement = document.createElement("p");
         document.getElementById("response").appendChild(loginText);
-        loginText.innerText = responseText; 
+        loginText.innerHTML = responseText; 
 
     }
 
