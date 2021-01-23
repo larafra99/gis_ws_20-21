@@ -90,7 +90,7 @@ var Aufgabe3_4;
         }
     }
     async function showClients() {
-        let allUser = await collection.find({ vorname: 1 }).toArray();
+        let allUser = await collection.find({}, { projection: { _íd: 0, passwort: 0 } }).toArray();
         return allUser;
     }
     async function einloggen(_email, _password) {
