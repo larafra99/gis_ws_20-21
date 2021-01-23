@@ -90,7 +90,8 @@ var Aufgabe3_4;
         }
     }
     async function showClients() {
-        let allUser = await collection.find().toArray();
+        //let projection: Mongo.FindOneOptions<string> = {"_id": 0};
+        let allUser = await collection.find({ "_id": 0, "passwort": 0 }).toArray();
         return allUser;
     }
     async function einloggen(_email, _password) {

@@ -10,8 +10,6 @@
         let responseTextJson: JSON = JSON.parse(responseText);
         console.log(response);
         console.log(responseText);
-        console.log(responseTextJson);
-
         console.log(url);
 
 
@@ -20,7 +18,5 @@
         document.getElementById("showclients").appendChild(allClients);
         allClients.innerHTML = responseText;
 
-    }
-
-  
+    }  
 }

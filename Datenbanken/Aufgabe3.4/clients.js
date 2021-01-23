@@ -10,7 +10,6 @@ var Aufgabe3_4;
         let responseTextJson = JSON.parse(responseText);
         console.log(response);
         console.log(responseText);
-        console.log(responseTextJson);
         console.log(url);
         let allClients = document.createElement("p");
         document.getElementById("showclients").appendChild(allClients);
