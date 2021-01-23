@@ -2,7 +2,6 @@ import * as Http from "http";
 import * as Url from "url";
 import * as Mongo from "mongodb";
 import { ParsedUrlQuery } from "querystring";
-import { userInfo } from "os";
 export namespace Aufgabe3_4 {
     
     interface User {
@@ -10,16 +9,6 @@ export namespace Aufgabe3_4 {
         nachname: string;
         email: string;
         passwort: string;    
-    }
-
-    interface Answer {
-        [type: string ]: string | string[];
-    }
-
-    interface Fehler {
-        falschesPasswort: string;
-        faslcheEmail: string;
-        faslcherBenutzername: string;
     }
 
     let collection: Mongo.Collection;

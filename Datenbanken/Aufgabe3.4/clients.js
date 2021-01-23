@@ -6,10 +6,13 @@ var Aufgabe3_4;
     async function showClient(_event) {
         let url = "https://gisws2021.herokuapp.com/clients.html";
         let response = await fetch(url);
+        let responseText = await response.text();
+        //let responseTextJson: JSON = JSON.parse(responseText);
         console.log(response);
         console.group(url);
         let allClients = document.createElement("p");
         document.getElementById("showclients").appendChild(allClients);
+        allClients.innerHTML = responseText;
     }
 })(Aufgabe3_4 || (Aufgabe3_4 = {}));
 //# sourceMappingURL=clients.js.map
