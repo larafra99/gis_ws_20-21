@@ -91,7 +91,11 @@ var Aufgabe3_4;
     }
     async function showClients() {
         let allUser = await collection.find().toArray();
-        return allUser;
+        let allUserPassword;
+        for (let i = 0; i < allUser.length; i++) {
+            allUserPassword = allUserPassword + allUser[i].vorname + allUser[i].nachname;
+        }
+        return allUserPassword;
     }
     async function einloggen(_email, _password) {
         let daten = await collection.countDocuments({ "email": _email, "passwort": _password });

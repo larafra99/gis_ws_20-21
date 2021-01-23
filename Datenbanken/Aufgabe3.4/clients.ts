@@ -7,9 +7,12 @@
         let url: string = "https://gisws2021.herokuapp.com/clients.html";
         let response: Response = await fetch(url);
         let responseText: string = await response.text();
-        //let responseTextJson: JSON = JSON.parse(responseText);
+        let responseTextJson: JSON = JSON.parse(responseText);
         console.log(response);
-        console.group(url);
+        console.log(responseText);
+        console.log(responseTextJson);
+
+        console.log(url);
 
 
        

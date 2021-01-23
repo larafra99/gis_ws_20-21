@@ -84,8 +84,7 @@ export namespace Aufgabe3_4 {
                 }
                 else {
                     _response.write("Emailadresse ist schon vergeben bitte nutzen sie Login");
-                }
-                
+                }    
             }
 
             else if (q.pathname == "/clients.html") {
@@ -108,9 +107,15 @@ export namespace Aufgabe3_4 {
         }
 
     }
-    async function showClients(): Promise<User[]> {
+    async function showClients(): Promise<String> {
         let allUser: User[] = await collection.find().toArray();
-        return allUser;
+        let allUserPassword: string;
+        for (let i: number = 0; i < allUser.length; i++) {
+
+            allUserPassword = allUserPassword + allUser[i].vorname + allUser[i].nachname;
+        }
+
+        return allUserPassword;
 
     }
     async function einloggen(_email: string, _password: string): Promise<boolean> {
@@ -121,12 +126,5 @@ export namespace Aufgabe3_4 {
         else {
             return false;
         }
-        
-      
-
-
-
     }
-
-
 }
