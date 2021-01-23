@@ -108,7 +108,7 @@ export namespace Aufgabe3_4 {
 
     }
     async function showClients(): Promise<User[]> {
-        let allUser: User[] = await collection.find( {}, {projection: { _íd: 0, passwort: 0 }} ).toArray();
+        let allUser: User[] = await collection.find( {}, {projection: { _id: 0, passwort: 0 }} ).toArray();
         return allUser;
 
     }
