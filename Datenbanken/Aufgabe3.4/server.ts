@@ -109,13 +109,7 @@ export namespace Aufgabe3_4 {
     }
     async function showClients(): Promise<User[]> {
         let allUser: User[] = await collection.find().toArray();
-        let allUserPassword: User[] = [];
-        allUser.forEach (user => {
-            let dataElement: User = JSON.parse(JSON.stringify(user));
-            delete dataElement.passwort;
-            allUserPassword.push(dataElement);
-        });
-        return allUserPassword;
+        return allUser;
 
     }
     async function einloggen(_email: string, _password: string): Promise<boolean> {
