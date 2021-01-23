@@ -108,8 +108,7 @@ export namespace Aufgabe3_4 {
 
     }
     async function showClients(): Promise<User[]> {
-        //let projection: Mongo.FindOneOptions<string> = {"_id": 0};
-        let allUser: User[] = await collection.find( {"_id": 0, "passwort": 0}).toArray();
+        let allUser: User[] = await collection.find({vorname: "", nachname: "", email: "", _id: 0, passwort: 0 }).toArray();
         return allUser;
 
     }
