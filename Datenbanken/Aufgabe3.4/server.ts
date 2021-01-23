@@ -108,7 +108,7 @@ export namespace Aufgabe3_4 {
 
     }
     async function showClients(): Promise<User[]> {
-        let allUser: User[] = await collection.find({vorname: "", nachname: "", email: ""}).toArray();
+        let allUser: User[] = await collection.find({vorname: 1}).toArray();
         return allUser;
 
     }
