@@ -7,7 +7,7 @@ var Aufgabe3_4;
         let url = "https://gisws2021.herokuapp.com/clients.html";
         let response = await fetch(url);
         let responseText = await response.text();
-        let responseTextJson = JSON.parse(responseText);
+        //let responseTextJson: JSON = JSON.parse(responseText);
         console.log(response);
         console.log(responseText);
         console.log(url);

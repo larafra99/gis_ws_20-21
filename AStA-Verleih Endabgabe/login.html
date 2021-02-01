@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset = "UTF-8">
+  <meta name="viewport" content="width=devine-width,initial-scale=1.0">
+  <title> Formular</title>
+  <script src="login.js" defer></script>
+  <link rel="stylesheet" href ="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class= "nav">
+                <li> <a href ="verleih.html" >Verleih</a></li>
+                <li > <a href="registrieren.html">Registrieren</a></li>
+                <li > <a href="login.html">Einloggen</a></li>
+            </ul>
+        </nav>
+        <h1>Login</h1>
+
+    </header>
+    <main>
+        <div  class = "Login">
+            <form id="logForm">
+                <fieldset>
+                    <legend> Felder mit* sind erforderlich</legend>
+                        <label for="Benutzername"> Benutzername*</label>
+                        <input type ="Benutzername" id="Benutzername" name="Benutzername" />      
+                        <label for = "password"> Password*</label>  
+                        <input type ="password" id = "password" name = "password"/>
+                        <div>
+                            <button id="login" type ="button">Einloggen</button>
+                        </div>
+                        <div>
+                            <button id="register" type ="button">Registrieren</button>
+                        </div>
+                </fieldset>
+            </form>
+        </div>  
+        <div id ="response">
+
+        </div>
+    </main> 
+</body>
+</html>
