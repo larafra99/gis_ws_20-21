@@ -1,5 +1,5 @@
 body{
-    background-image:url(picture/background.jpg);
+    background-image:url('picture/background.jpg');
     background-size: 100%;
     font-family:Arial, Helvetica, sans-serif;
 }
@@ -13,8 +13,7 @@ ul{
     padding:0px;
     width: 100%;
     overflow:hidden;
-    background: #0B0B61;
-    
+    background: #0B0B61;    
 }
 .nav>li{
     float:left;
@@ -26,29 +25,22 @@ ul{
     text-align:center;
     text-decoration: none;
 }
-p{
-    font-family: Arial, Helvetica, sans-serif;
-}
 li a:hover{
     background-color: black;
-    cursor: pointer;
-   
+    cursor: pointer;  
 }
 main{
     margin:auto;
     width: 70%;
     text-align:left;
-    justify-content: left;
-    
+    justify-content: left;    
 }
 form{
     position: relative;
     text-align: center;
     left:-20px;
 }
-#email{
-    padding-right: 20%;
-}
+
 input{
     margin-right: 30px;
     width: 300px;
@@ -59,6 +51,11 @@ input{
 }
 select{
     margin-right: 30px;
+    width: 300px;
+    height: 50px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding-left:5px;
 }
 h1{
     width:70%;
@@ -92,20 +89,45 @@ button:hover{
     background-color: #BDBDBD;
     border-radius:10px;
 }
+.register{
+    width:500px; 
+    height: 610px; 
+    margin: auto;
+    padding-top:20px;
+    text-align: center;
+    background-color: #BDBDBD;
+    border-radius:10px;
+
+}
 #Benutzername{
     width: 98%;
 }
 #password{
     width: 98%;
 }
-fieldset{
+#fname{
+    width: 98%;
+}
+#lname{
+    width: 98%;
+}
+#email{
+    width: 98%;
+}
+#fieldreg{
+    margin-left: 35px;   
+}
+#Studiengang{
+    width: 98%;
+}
+#fieldlog{
     margin-left: 35px;
-    height:350px
+    height:320px
 }
 label{
     margin-top:50px;
     padding-bottom: 50px;
 }
 legend{
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
