@@ -101,8 +101,8 @@ export namespace Endabgabe {
     }
     async function registerien(_client: User): Promise<boolean> { 
         console.log("regstrieren");
-        let _suchmail: number = await collection.countDocuments({"email": _client.email});
-        if (_suchmail > 0) {
+        let _suchmail: User = await collection.findOne({"email": _client.email});
+        if (_suchmail != undefined) {
             return false;
         }
         else {

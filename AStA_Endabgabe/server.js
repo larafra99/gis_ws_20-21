@@ -83,8 +83,8 @@ var Endabgabe;
     }
     async function registerien(_client) {
         console.log("regstrieren");
-        let _suchmail = await collection.countDocuments({ "email": _client.email });
-        if (_suchmail > 0) {
+        let _suchmail = await collection.findOne({ "email": _client.email });
+        if (_suchmail != undefined) {
             return false;
         }
         else {
