@@ -7,7 +7,7 @@
     "@types/node": "^14.14.12"
   },
   "scripts": {
-    "start": "node Datenbanken/Aufgabe3.4/server.js remote"
+    "start": "node Asta_Website/server.js remote"
   },
   "repository": {
     "type": "git",
