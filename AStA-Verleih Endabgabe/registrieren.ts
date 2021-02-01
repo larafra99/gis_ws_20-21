@@ -1,5 +1,5 @@
 namespace Endabgabe {
-    let regForm: HTMLFormElement = <HTMLFormElement>document.getElementById("regform");
+    let regForm: HTMLFormElement = <HTMLFormElement>document.getElementById("regForm");
     let regButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("register");
     regButton.addEventListener("click", register);
 

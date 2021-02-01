@@ -1,7 +1,7 @@
 "use strict";
 var Endabgabe;
 (function (Endabgabe) {
-    let regForm = document.getElementById("regform");
+    let regForm = document.getElementById("regForm");
     let regButton = document.getElementById("register");
     regButton.addEventListener("click", register);
     async function register(_event) {
