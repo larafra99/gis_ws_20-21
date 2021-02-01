@@ -45,7 +45,7 @@ export namespace Endabgabe {
     }
 
     function handleListen(): void {
-        console.log(" I am listening"); 
+        console.log(" listening"); 
     }
 
     async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {

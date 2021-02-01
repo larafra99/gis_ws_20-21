@@ -33,7 +33,7 @@ var Endabgabe;
         console.log("Database connection sucessfull", collection != undefined);
     }
     function handleListen() {
-        console.log(" I am listening");
+        console.log(" listening");
     }
     async function handleRequest(_request, _response) {
         console.log("I hear voices!");
