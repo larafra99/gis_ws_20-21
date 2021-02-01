@@ -54,13 +54,11 @@ export namespace Endabgabe {
         _response.setHeader("Access-Control-Allow-Origin", "*"); 
 
         if (_request.url) {
-            let q: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
-            console.log(q);    
+            let q: Url.UrlWithParsedQuery = Url.parse(_request.url, true);   
             for (let key in q.query) {
                 _response.write (key + ":" + q.query[key] + "<br/>");   
             }
             let parameter: ParsedUrlQuery = q.query;
-            console.log(parameter);
 
             if (q.pathname == "/login.html") {
                 console.log("einloggen");
@@ -82,6 +80,7 @@ export namespace Endabgabe {
                     studiengang: parameter.studiengang as string,
                     passwort: parameter.password as string
                 };
+                console.log(users);
                 let resultreg: boolean = await registerien(users);
                 if (resultreg) {
                     _response.write("Nutzer wurde erstellt");
@@ -101,6 +100,7 @@ export namespace Endabgabe {
         _response.end();
     }
     async function registerien(_client: User): Promise<boolean> { 
+        console.log("regstrieren");
         let _suchmail: number = await collection.countDocuments({"email": _client.email});
         if (_suchmail > 0) {
             return false;
