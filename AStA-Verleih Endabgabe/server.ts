@@ -54,11 +54,13 @@ export namespace Endabgabe {
         _response.setHeader("Access-Control-Allow-Origin", "*"); 
 
         if (_request.url) {
-            let q: Url.UrlWithParsedQuery = Url.parse(_request.url, true);    
+            let q: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
+            console.log(q);    
             for (let key in q.query) {
                 _response.write (key + ":" + q.query[key] + "<br/>");   
             }
             let parameter: ParsedUrlQuery = q.query;
+            console.log(parameter);
 
             if (q.pathname == "/login.html") {
                 console.log("einloggen");
