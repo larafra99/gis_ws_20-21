@@ -13,7 +13,7 @@ var Endabgabe;
         port = 8100;
     }
     //let dataBaseUrl: string = "mongodb://localhost: 27017";
-    let dataBaseUrl = "mongodb+srv://Reader:Database123@gisws20-21.a07b1.mongodb.net/Endabgabe?retryWrites=true&w=majority";
+    let dataBaseUrl = "mongodb+srv://Reader:Database123@gisws20-21.a07b1.mongodb.net/ASTA?retryWrites=true&w=majority";
     console.log("Starting server");
     //Aufruf der Funktionen
     startServer(port);
@@ -56,7 +56,7 @@ var Endabgabe;
                 }
             }
             else if (q.pathname == "/register.html") {
-                console.log("registieren");
+                console.log("registieren erfolgreich");
                 let users = {
                     vorname: parameter.fname,
                     nachname: parameter.lname,

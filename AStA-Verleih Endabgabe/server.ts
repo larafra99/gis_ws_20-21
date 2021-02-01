@@ -21,7 +21,7 @@ export namespace Endabgabe {
     }
 
     //let dataBaseUrl: string = "mongodb://localhost: 27017";
-    let dataBaseUrl: string = "mongodb+srv://Reader:Database123@gisws20-21.a07b1.mongodb.net/Endabgabe?retryWrites=true&w=majority";
+    let dataBaseUrl: string = "mongodb+srv://Reader:Database123@gisws20-21.a07b1.mongodb.net/ASTA?retryWrites=true&w=majority";
     console.log("Starting server");
 
     //Aufruf der Funktionen
@@ -72,7 +72,7 @@ export namespace Endabgabe {
             }
 
             else if (q.pathname == "/register.html") {
-                console.log("registieren");
+                console.log("registieren erfolgreich");
                 let users: User = {
                     vorname: parameter.fname as string,
                     nachname: parameter.lname as string,
