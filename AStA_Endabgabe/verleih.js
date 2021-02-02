@@ -1,9 +1,8 @@
 "use strict";
 var Aufgabe3_4;
 (function (Aufgabe3_4) {
-    let clientButton = document.getElementById("clients");
-    clientButton.addEventListener("click", showClient);
-    async function showClient(_event) {
+    showData();
+    async function showData() {
         let url = "https://gisws2021.herokuapp.com/verleih.html";
         let response = await fetch(url);
         let responseText = await response.text();

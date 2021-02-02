@@ -1,9 +1,8 @@
 namespace Aufgabe3_4 {
 
-    let clientButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("clients");
-    clientButton.addEventListener("click", showClient);
+    showData();
 
-    async function showClient(_event: Event): Promise<void> {
+    async function showData(): Promise<void> {
         let url: string = "https://gisws2021.herokuapp.com/verleih.html";
         let response: Response = await fetch(url);
         let responseText: string = await response.text();
@@ -12,7 +11,7 @@ namespace Aufgabe3_4 {
         console.log(responseText);
         console.log(url);
 
-        
+
         let allClients: HTMLElement = document.createElement("p");
         document.getElementById("showclients").appendChild(allClients);
         allClients.innerHTML = responseText;

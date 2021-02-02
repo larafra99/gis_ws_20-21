@@ -18,7 +18,7 @@ var Endabgabe;
         let registerText = document.createElement("p");
         document.getElementById("registerAnswer").appendChild(registerText);
         registerText.innerHTML = responseText;
-        if (responseText == "...>Sie sind eingelogt") {
+        if (responseText == "Nutzer wurde erstellt") {
             window.location.replace("verleih.html");
         }
         //Fehler interface bauen

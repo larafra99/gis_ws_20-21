@@ -53,7 +53,7 @@ export namespace Endabgabe {
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
         collection = mongoClient.db("ASTA").collection("User");
-        console.log("Database connection sucessfull", collection != undefined);
+        console.log("Database connection sucessfull User", collection != undefined);
     }
 
     async function gettingData(_url: string): Promise<void> {
@@ -61,7 +61,7 @@ export namespace Endabgabe {
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
         collection = mongoClient.db("ASTA").collection("Data");
-        console.log("Database connection sucessfull", collection != undefined);
+        console.log("Database connection sucessfull Data", collection != undefined);
 
     }
 
@@ -116,7 +116,7 @@ export namespace Endabgabe {
 
             else if (q.pathname == "/verleih.html") {
                 console.log("verleih");
-                let listUser: Daten[] = await showClients();
+                let listUser: Daten[] = await showData();
                 _response.write( JSON.stringify(listUser) );
             }
         }
@@ -135,7 +135,7 @@ export namespace Endabgabe {
         }
 
     }
-    async function showClients(): Promise<Daten[]> {
+    async function showData(): Promise<Daten[]> {
         gettingData(dataBaseUrl);
         let data: Daten[] = await collection.find( {}, {projection: { _id: 0}} ).toArray();
         connectToDatabase(dataBaseUrl);

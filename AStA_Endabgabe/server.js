@@ -30,14 +30,14 @@ var Endabgabe;
         let mongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
         collection = mongoClient.db("ASTA").collection("User");
-        console.log("Database connection sucessfull", collection != undefined);
+        console.log("Database connection sucessfull User", collection != undefined);
     }
     async function gettingData(_url) {
         let options = { useNewUrlParser: true, useUnifiedTopology: true };
         let mongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
         collection = mongoClient.db("ASTA").collection("Data");
-        console.log("Database connection sucessfull", collection != undefined);
+        console.log("Database connection sucessfull Data", collection != undefined);
     }
     function handleListen() {
         console.log(" listening");
@@ -82,7 +82,7 @@ var Endabgabe;
             }
             else if (q.pathname == "/verleih.html") {
                 console.log("verleih");
-                let listUser = await showClients();
+                let listUser = await showData();
                 _response.write(JSON.stringify(listUser));
             }
         }
@@ -99,7 +99,7 @@ var Endabgabe;
             return true;
         }
     }
-    async function showClients() {
+    async function showData() {
         gettingData(dataBaseUrl);
         let data = await collection.find({}, { projection: { _id: 0 } }).toArray();
         connectToDatabase(dataBaseUrl);

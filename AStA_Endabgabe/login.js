@@ -14,11 +14,11 @@ var Endabgabe;
         let response = await fetch(url);
         let responseText = await response.text();
         //console.log(response);
-        //console.log(responseText);
+        console.log(responseText);
         let loginText = document.createElement("p");
         document.getElementById("response").appendChild(loginText);
         loginText.innerHTML = responseText;
-        if (responseText == "...<br/>Sie sind eingelogt") {
+        if (responseText == "Sie sind eingelogt") {
             window.location.replace("verleih.html");
         }
     }

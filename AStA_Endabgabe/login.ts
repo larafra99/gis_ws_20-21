@@ -15,12 +15,12 @@ namespace Endabgabe {
         let response: Response = await fetch(url);
         let responseText: string = await response.text();
         //console.log(response);
-        //console.log(responseText);
+        console.log(responseText);
 
         let loginText: HTMLElement = document.createElement("p");
         document.getElementById("response").appendChild(loginText);
         loginText.innerHTML = responseText; 
-        if (responseText == "...<br/>Sie sind eingelogt") {
+        if (responseText == "Sie sind eingelogt") {
             window.location.replace("verleih.html");
         }
 
