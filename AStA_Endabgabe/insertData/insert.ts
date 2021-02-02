@@ -50,6 +50,7 @@ async function connectToDatabase(_url: string): Promise<void> {
 function handleListen(): void {
     console.log(" listening"); 
 }
+
 async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
     console.log("I hear voices!"); 
     _response.setHeader("content-type", "text/html; charset=utf-8"); 
