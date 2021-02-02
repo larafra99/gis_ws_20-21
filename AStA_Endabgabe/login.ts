@@ -20,6 +20,9 @@ namespace Endabgabe {
         let loginText: HTMLElement = document.createElement("p");
         document.getElementById("response").appendChild(loginText);
         loginText.innerHTML = responseText; 
+        if (responseText == "Nutzer wurde erstellt") {
+            window.location.replace("verleih.html");
+        }
 
     }
 

@@ -18,6 +18,9 @@ var Endabgabe;
         let loginText = document.createElement("p");
         document.getElementById("response").appendChild(loginText);
         loginText.innerHTML = responseText;
+        if (responseText == "Nutzer wurde erstellt") {
+            window.location.replace("verleih.html");
+        }
     }
 })(Endabgabe || (Endabgabe = {}));
 //# sourceMappingURL=login.js.map
