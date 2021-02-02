@@ -48,9 +48,9 @@ var Endabgabe;
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
             let q = Url.parse(_request.url, true);
-            for (let key in q.query) {
-                _response.write(key + ":" + q.query[key] + "<br/>");
-            }
+            //for (let key in q.query) {
+            //_response.write (key + ":" + q.query[key] + "<br/>");   
+            //}
             let parameter = q.query;
             if (q.pathname == "/login.html") {
                 console.log("einloggen");

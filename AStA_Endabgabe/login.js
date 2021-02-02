@@ -18,7 +18,7 @@ var Endabgabe;
         let loginText = document.createElement("p");
         document.getElementById("response").appendChild(loginText);
         loginText.innerHTML = responseText;
-        if (responseText == "Nutzer wurde erstellt") {
+        if (responseText == "...<br/>Sie sind eingelogt") {
             window.location.replace("verleih.html");
         }
     }

@@ -14,10 +14,13 @@ var Endabgabe;
         let response = await fetch(url);
         let responseText = await response.text();
         //console.log(response);
-        //console.log(responseText);
+        console.log(responseText);
         let registerText = document.createElement("p");
         document.getElementById("registerAnswer").appendChild(registerText);
         registerText.innerHTML = responseText;
+        if (responseText == "...>Sie sind eingelogt") {
+            window.location.replace("verleih.html");
+        }
         //Fehler interface bauen
     }
 })(Endabgabe || (Endabgabe = {}));

@@ -76,9 +76,9 @@ export namespace Endabgabe {
 
         if (_request.url) {
             let q: Url.UrlWithParsedQuery = Url.parse(_request.url, true);   
-            for (let key in q.query) {
-                _response.write (key + ":" + q.query[key] + "<br/>");   
-            }
+            //for (let key in q.query) {
+                //_response.write (key + ":" + q.query[key] + "<br/>");   
+            //}
             let parameter: ParsedUrlQuery = q.query;
 
             if (q.pathname == "/login.html") {
