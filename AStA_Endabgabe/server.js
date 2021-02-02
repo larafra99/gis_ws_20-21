@@ -32,6 +32,13 @@ var Endabgabe;
         collection = mongoClient.db("ASTA").collection("User");
         console.log("Database connection sucessfull", collection != undefined);
     }
+    async function gettingData(_url) {
+        let options = { useNewUrlParser: true, useUnifiedTopology: true };
+        let mongoClient = new Mongo.MongoClient(_url, options);
+        await mongoClient.connect();
+        collection = mongoClient.db("ASTA").collection("Data");
+        console.log("Database connection sucessfull", collection != undefined);
+    }
     function handleListen() {
         console.log(" listening");
     }
@@ -73,8 +80,8 @@ var Endabgabe;
                     _response.write("Emailadresse ist schon vergeben bitte nutzen sie Login");
                 }
             }
-            else if (q.pathname == "/clients.html") {
-                console.log("benutzer");
+            else if (q.pathname == "/verleih.html") {
+                console.log("verleih");
                 let listUser = await showClients();
                 _response.write(JSON.stringify(listUser));
             }
@@ -93,8 +100,10 @@ var Endabgabe;
         }
     }
     async function showClients() {
-        let allUser = await collection.find({}, { projection: { _id: 0, passwort: 0 } }).toArray();
-        return allUser;
+        gettingData(dataBaseUrl);
+        let data = await collection.find({}, { projection: { _id: 0 } }).toArray();
+        connectToDatabase(dataBaseUrl);
+        return data;
     }
     async function einloggen(_email, _password) {
         let daten = await collection.countDocuments({ "email": _email, "passwort": _password });

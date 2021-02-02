@@ -12,6 +12,18 @@ export namespace Endabgabe {
         passwort: string;    
     }
 
+    interface Daten {
+        url: string;
+        name: string;
+        status: Status;
+    }
+
+    interface Status {
+        ausgeliehen: string;
+        frei: string;
+        reserviert: string;
+    }
+
     let collection: Mongo.Collection;
 
     //Port erstellen
@@ -44,6 +56,15 @@ export namespace Endabgabe {
         console.log("Database connection sucessfull", collection != undefined);
     }
 
+    async function gettingData(_url: string): Promise<void> {
+        let options: Mongo.MongoClientOptions = {useNewUrlParser: true, useUnifiedTopology: true};
+        let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
+        await mongoClient.connect();
+        collection = mongoClient.db("ASTA").collection("Data");
+        console.log("Database connection sucessfull", collection != undefined);
+
+    }
+
     function handleListen(): void {
         console.log(" listening"); 
     }
@@ -73,6 +94,7 @@ export namespace Endabgabe {
 
             else if (q.pathname == "/register.html") {
                 console.log("registieren erfolgreich");
+
                 let users: User = {
                     vorname: parameter.fname as string,
                     nachname: parameter.lname as string,
@@ -80,6 +102,7 @@ export namespace Endabgabe {
                     studiengang: parameter.studiengang as string,
                     passwort: parameter.password as string
                 };
+                
                 console.log(users);
                 let resultreg: boolean = await registerien(users);
                 if (resultreg) {
@@ -90,9 +113,9 @@ export namespace Endabgabe {
                 }    
             }
 
-            else if (q.pathname == "/clients.html") {
-                console.log("benutzer");
-                let listUser: User[] = await showClients();
+            else if (q.pathname == "/verleih.html") {
+                console.log("verleih");
+                let listUser: Daten[] = await showClients();
                 _response.write( JSON.stringify(listUser) );
             }
         }
@@ -111,9 +134,11 @@ export namespace Endabgabe {
         }
 
     }
-    async function showClients(): Promise<User[]> {
-        let allUser: User[] = await collection.find( {}, {projection: { _id: 0, passwort: 0 }} ).toArray();
-        return allUser;
+    async function showClients(): Promise<Daten[]> {
+        gettingData(dataBaseUrl);
+        let data: Daten[] = await collection.find( {}, {projection: { _id: 0}} ).toArray();
+        connectToDatabase(dataBaseUrl);
+        return data;
 
     }
     async function einloggen(_email: string, _password: string): Promise<boolean> {
