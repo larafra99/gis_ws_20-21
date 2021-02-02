@@ -7,7 +7,7 @@
     "@types/node": "^14.14.12"
   },
   "scripts": {
-    "start": "node insertData/insert.js remote"
+    "start": "node AStA_Endabgabe/insertData/insert.js remote"
   },
   "repository": {
     "type": "git",
