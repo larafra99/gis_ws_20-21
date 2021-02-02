@@ -57,6 +57,7 @@ var Endabgabe;
                 let result = await einloggen(parameter.email, parameter.password);
                 if (result) {
                     _response.write("Sie sind eingelogt");
+                    window.location.replace("verleih.html");
                 }
                 else {
                     _response.write("Fehler aufgetreten Bitte überprüfen sie ihre Daten");

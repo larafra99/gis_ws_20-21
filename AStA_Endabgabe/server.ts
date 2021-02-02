@@ -86,6 +86,7 @@ export namespace Endabgabe {
                 let result: boolean =  await einloggen(parameter.email as string , parameter.password as string);
                 if (result) {
                     _response.write("Sie sind eingelogt");
+                    window.location.replace("verleih.html");
                 }
                 else {
                     _response.write("Fehler aufgetreten Bitte überprüfen sie ihre Daten");
@@ -102,11 +103,13 @@ export namespace Endabgabe {
                     studiengang: parameter.studiengang as string,
                     passwort: parameter.password as string
                 };
-                
+
                 console.log(users);
                 let resultreg: boolean = await registerien(users);
                 if (resultreg) {
+                    
                     _response.write("Nutzer wurde erstellt");
+                    
                 }
                 else {
                     _response.write("Emailadresse ist schon vergeben bitte nutzen sie Login");
