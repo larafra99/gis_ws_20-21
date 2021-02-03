@@ -136,11 +136,11 @@ export namespace Endabgabe {
     async function showData(): Promise<Daten[]> {
         gettingData(dataBaseUrl);
         let data: Daten[] = await collection.find( {}, {projection: { _id: 0}} ).toArray();
-        connectToDatabase(dataBaseUrl);
         return data;
 
     }
     async function einloggen(_email: string, _password: string): Promise<boolean> {
+        connectToDatabase(dataBaseUrl);
         let daten: number = await collection.countDocuments({"email": _email, "passwort": _password});
         if (daten > 0) {
             return true;
