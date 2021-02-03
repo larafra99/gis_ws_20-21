@@ -80,6 +80,7 @@ export namespace Endabgabe {
 
             if (q.pathname == "/login.html") {
                 console.log("einloggen");
+                connectToDatabase(dataBaseUrl);
                 let result: boolean =  await einloggen(parameter.email as string , parameter.password as string);
                 if (result) {
                     _response.write("Sie sind eingelogt");
@@ -91,6 +92,7 @@ export namespace Endabgabe {
 
             else if (q.pathname == "/register.html") {
                 console.log("registieren erfolgreich");
+                connectToDatabase(dataBaseUrl);
 
                 let users: User = {
                     vorname: parameter.fname as string,
@@ -113,6 +115,7 @@ export namespace Endabgabe {
 
             else if (q.pathname == "/verleih.html") {
                 console.log("verleih");
+                gettingData(dataBaseUrl);
                 let listUser: Daten[] = await showData();
                 _response.write( JSON.stringify(listUser) );
             }
@@ -121,7 +124,6 @@ export namespace Endabgabe {
         _response.end();
     }
     async function registerien(_client: User): Promise<boolean> { 
-        connectToDatabase(dataBaseUrl);
         console.log("regstrieren");
         let _suchmail: User = await collection.findOne({"email": _client.email});
         if (_suchmail != undefined) {
@@ -134,13 +136,11 @@ export namespace Endabgabe {
 
     }
     async function showData(): Promise<Daten[]> {
-        gettingData(dataBaseUrl);
         let data: Daten[] = await collection.find( {}, {projection: { _id: 0}} ).toArray();
         return data;
 
     }
     async function einloggen(_email: string, _password: string): Promise<boolean> {
-        connectToDatabase(dataBaseUrl);
         let daten: number = await collection.countDocuments({"email": _email, "passwort": _password});
         if (daten > 0) {
             return true;

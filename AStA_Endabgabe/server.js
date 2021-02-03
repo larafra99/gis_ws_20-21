@@ -52,6 +52,7 @@ var Endabgabe;
             let parameter = q.query;
             if (q.pathname == "/login.html") {
                 console.log("einloggen");
+                connectToDatabase(dataBaseUrl);
                 let result = await einloggen(parameter.email, parameter.password);
                 if (result) {
                     _response.write("Sie sind eingelogt");
@@ -62,6 +63,7 @@ var Endabgabe;
             }
             else if (q.pathname == "/register.html") {
                 console.log("registieren erfolgreich");
+                connectToDatabase(dataBaseUrl);
                 let users = {
                     vorname: parameter.fname,
                     nachname: parameter.lname,
@@ -80,6 +82,7 @@ var Endabgabe;
             }
             else if (q.pathname == "/verleih.html") {
                 console.log("verleih");
+                gettingData(dataBaseUrl);
                 let listUser = await showData();
                 _response.write(JSON.stringify(listUser));
             }
@@ -87,7 +90,6 @@ var Endabgabe;
         _response.end();
     }
     async function registerien(_client) {
-        connectToDatabase(dataBaseUrl);
         console.log("regstrieren");
         let _suchmail = await collection.findOne({ "email": _client.email });
         if (_suchmail != undefined) {
@@ -99,12 +101,10 @@ var Endabgabe;
         }
     }
     async function showData() {
-        gettingData(dataBaseUrl);
         let data = await collection.find({}, { projection: { _id: 0 } }).toArray();
         return data;
     }
     async function einloggen(_email, _password) {
-        connectToDatabase(dataBaseUrl);
         let daten = await collection.countDocuments({ "email": _email, "passwort": _password });
         if (daten > 0) {
             return true;
