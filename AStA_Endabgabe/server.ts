@@ -25,6 +25,7 @@ export namespace Endabgabe {
     }
 
     let collection: Mongo.Collection;
+    let collectionData: Mongo.Collection;
 
     let port: number = Number(process.env.PORT); 
     if (port == undefined) {
@@ -51,15 +52,8 @@ export namespace Endabgabe {
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
         collection = mongoClient.db("ASTA").collection("User");
+        collectionData =  mongoClient.db("ASTA").collection("Data");
         console.log("Database connection sucessfull User", collection != undefined);
-    }
-
-    async function gettingData(_url: string): Promise<void> {
-        let options: Mongo.MongoClientOptions = {useNewUrlParser: true, useUnifiedTopology: true};
-        let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
-        await mongoClient.connect();
-        collection = mongoClient.db("ASTA").collection("Data");
-        console.log("Database connection sucessfull Data", collection != undefined);
     }
 
     function handleListen(): void {
@@ -80,7 +74,6 @@ export namespace Endabgabe {
 
             if (q.pathname == "/login.html") {
                 console.log("einloggen");
-                connectToDatabase(dataBaseUrl);
                 let result: boolean =  await einloggen(parameter.email as string , parameter.password as string);
                 if (result) {
                     _response.write("Sie sind eingelogt");
@@ -92,7 +85,6 @@ export namespace Endabgabe {
 
             else if (q.pathname == "/register.html") {
                 console.log("registieren erfolgreich");
-                connectToDatabase(dataBaseUrl);
 
                 let users: User = {
                     vorname: parameter.fname as string,
@@ -115,7 +107,6 @@ export namespace Endabgabe {
 
             else if (q.pathname == "/verleih.html") {
                 console.log("verleih");
-                gettingData(dataBaseUrl);
                 let listUser: Daten[] = await showData();
                 _response.write( JSON.stringify(listUser) );
             }

@@ -7,6 +7,7 @@ const Mongo = require("mongodb");
 var Endabgabe;
 (function (Endabgabe) {
     let collection;
+    let collectionData;
     let port = Number(process.env.PORT);
     if (port == undefined) {
         port = 8100;
@@ -28,14 +29,8 @@ var Endabgabe;
         let mongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
         collection = mongoClient.db("ASTA").collection("User");
+        collectionData = mongoClient.db("ASTA").collection("Data");
         console.log("Database connection sucessfull User", collection != undefined);
-    }
-    async function gettingData(_url) {
-        let options = { useNewUrlParser: true, useUnifiedTopology: true };
-        let mongoClient = new Mongo.MongoClient(_url, options);
-        await mongoClient.connect();
-        collection = mongoClient.db("ASTA").collection("Data");
-        console.log("Database connection sucessfull Data", collection != undefined);
     }
     function handleListen() {
         console.log(" listening");
@@ -52,7 +47,6 @@ var Endabgabe;
             let parameter = q.query;
             if (q.pathname == "/login.html") {
                 console.log("einloggen");
-                connectToDatabase(dataBaseUrl);
                 let result = await einloggen(parameter.email, parameter.password);
                 if (result) {
                     _response.write("Sie sind eingelogt");
@@ -63,7 +57,6 @@ var Endabgabe;
             }
             else if (q.pathname == "/register.html") {
                 console.log("registieren erfolgreich");
-                connectToDatabase(dataBaseUrl);
                 let users = {
                     vorname: parameter.fname,
                     nachname: parameter.lname,
@@ -82,7 +75,6 @@ var Endabgabe;
             }
             else if (q.pathname == "/verleih.html") {
                 console.log("verleih");
-                gettingData(dataBaseUrl);
                 let listUser = await showData();
                 _response.write(JSON.stringify(listUser));
             }

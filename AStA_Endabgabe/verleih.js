@@ -8,11 +8,20 @@ var Aufgabe3_4;
         let responseText = await response.text();
         //let responseTextJson: JSON = JSON.parse(responseText);
         console.log(response);
-        console.log(responseText);
-        console.log(url);
-        let allClients = document.createElement("p");
-        document.getElementById("showData").appendChild(allClients);
-        allClients.innerHTML = responseText;
+        //console.log(responseText);
+        //console.log(url);
+        for (let i = 0; i < responseText.length; i++) {
+            console.log(i);
+        }
+        //for ( let parts in responseText) {
     }
+    //console.log(responseText);
+    //let allClients: HTMLElement = document.createElement("p");
+    //document.getElementById("showData").appendChild(allClients);
+    //allClients.innerHTML = responseText;
+    //let names: string[];
+    //if (document.getElementById("name") != null) {
+    //names.push();
+    //console.log(names);
 })(Aufgabe3_4 || (Aufgabe3_4 = {}));
 //# sourceMappingURL=verleih.js.map
