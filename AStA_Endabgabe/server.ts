@@ -26,7 +26,6 @@ export namespace Endabgabe {
 
     let collection: Mongo.Collection;
 
-    //Port erstellen
     let port: number = Number(process.env.PORT); 
     if (port == undefined) {
         port = 8100; 
@@ -40,7 +39,6 @@ export namespace Endabgabe {
     startServer(port);
     connectToDatabase(dataBaseUrl);
 
-    //Server erstellen
     function startServer(_port: number | string): void {
         let server: Http.Server = Http.createServer(); 
         server.addListener("request", handleRequest);
@@ -62,7 +60,6 @@ export namespace Endabgabe {
         await mongoClient.connect();
         collection = mongoClient.db("ASTA").collection("Data");
         console.log("Database connection sucessfull Data", collection != undefined);
-
     }
 
     function handleListen(): void {
@@ -124,6 +121,7 @@ export namespace Endabgabe {
         _response.end();
     }
     async function registerien(_client: User): Promise<boolean> { 
+        connectToDatabase(dataBaseUrl);
         console.log("regstrieren");
         let _suchmail: User = await collection.findOne({"email": _client.email});
         if (_suchmail != undefined) {
@@ -138,7 +136,7 @@ export namespace Endabgabe {
     async function showData(): Promise<Daten[]> {
         gettingData(dataBaseUrl);
         let data: Daten[] = await collection.find( {}, {projection: { _id: 0}} ).toArray();
-        //connectToDatabase(dataBaseUrl);
+        connectToDatabase(dataBaseUrl);
         return data;
 
     }

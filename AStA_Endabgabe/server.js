@@ -7,7 +7,6 @@ const Mongo = require("mongodb");
 var Endabgabe;
 (function (Endabgabe) {
     let collection;
-    //Port erstellen
     let port = Number(process.env.PORT);
     if (port == undefined) {
         port = 8100;
@@ -18,7 +17,6 @@ var Endabgabe;
     //Aufruf der Funktionen
     startServer(port);
     connectToDatabase(dataBaseUrl);
-    //Server erstellen
     function startServer(_port) {
         let server = Http.createServer();
         server.addListener("request", handleRequest);
@@ -89,6 +87,7 @@ var Endabgabe;
         _response.end();
     }
     async function registerien(_client) {
+        connectToDatabase(dataBaseUrl);
         console.log("regstrieren");
         let _suchmail = await collection.findOne({ "email": _client.email });
         if (_suchmail != undefined) {
@@ -102,7 +101,7 @@ var Endabgabe;
     async function showData() {
         gettingData(dataBaseUrl);
         let data = await collection.find({}, { projection: { _id: 0 } }).toArray();
-        //connectToDatabase(dataBaseUrl);
+        connectToDatabase(dataBaseUrl);
         return data;
     }
     async function einloggen(_email, _password) {
