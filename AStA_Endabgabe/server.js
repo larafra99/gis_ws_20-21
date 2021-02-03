@@ -93,7 +93,8 @@ var Endabgabe;
         }
     }
     async function showData() {
-        let data = await collection.find({}, { projection: { _id: 0 } }).toArray();
+        console.log("liste");
+        let data = await collectionData.find({}, { projection: { _id: 0 } }).toArray();
         return data;
     }
     async function einloggen(_email, _password) {
