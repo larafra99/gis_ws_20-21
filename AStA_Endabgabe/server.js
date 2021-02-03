@@ -102,7 +102,7 @@ var Endabgabe;
     async function showData() {
         gettingData(dataBaseUrl);
         let data = await collection.find({}, { projection: { _id: 0 } }).toArray();
-        connectToDatabase(dataBaseUrl);
+        //connectToDatabase(dataBaseUrl);
         return data;
     }
     async function einloggen(_email, _password) {

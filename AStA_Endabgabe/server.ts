@@ -138,7 +138,7 @@ export namespace Endabgabe {
     async function showData(): Promise<Daten[]> {
         gettingData(dataBaseUrl);
         let data: Daten[] = await collection.find( {}, {projection: { _id: 0}} ).toArray();
-        connectToDatabase(dataBaseUrl);
+        //connectToDatabase(dataBaseUrl);
         return data;
 
     }
