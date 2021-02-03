@@ -13,7 +13,7 @@ namespace Aufgabe3_4 {
 
 
         let allClients: HTMLElement = document.createElement("p");
-        document.getElementById("showclients").appendChild(allClients);
+        document.getElementById("showData").appendChild(allClients);
         allClients.innerHTML = responseText;
 
     }  

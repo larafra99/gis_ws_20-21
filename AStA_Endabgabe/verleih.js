@@ -11,7 +11,7 @@ var Aufgabe3_4;
         console.log(responseText);
         console.log(url);
         let allClients = document.createElement("p");
-        document.getElementById("showclients").appendChild(allClients);
+        document.getElementById("showData").appendChild(allClients);
         allClients.innerHTML = responseText;
     }
 })(Aufgabe3_4 || (Aufgabe3_4 = {}));
