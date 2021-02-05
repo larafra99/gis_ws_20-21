@@ -21,7 +21,6 @@ var Endabgabe;
         if (responseText == "Nutzer wurde erstellt") {
             window.location.replace("verleih.html");
         }
-        //Fehler interface bauen
     }
 })(Endabgabe || (Endabgabe = {}));
 //# sourceMappingURL=registrieren.js.map

@@ -24,9 +24,6 @@ namespace Endabgabe {
             window.location.replace("verleih.html");
         }
 
-        //Fehler interface bauen
-        
-
     }
 
 }
