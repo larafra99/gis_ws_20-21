@@ -41,9 +41,6 @@ var Endabgabe;
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
             let q = Url.parse(_request.url, true);
-            //for (let key in q.query) {
-            //_response.write (key + ":" + q.query[key] + "<br/>");   
-            //}
             let parameter = q.query;
             if (q.pathname == "/login.html") {
                 console.log("einloggen");
@@ -78,12 +75,18 @@ var Endabgabe;
                 let listUser = await showData();
                 _response.write(JSON.stringify(listUser));
             }
+            else if (q.pathname == "/ausleihen.html") {
+                console.log("ausleihen");
+            }
         }
         _response.end();
     }
     async function registerien(_client) {
         console.log("regstrieren");
         let _suchmail = await collection.findOne({ "email": _client.email });
+        let id = await collection.findOne({ "id": _client.id });
+        console.log(id);
+        //sessionStorage.setItem("id", id);
         if (_suchmail != undefined) {
             return false;
         }

@@ -131,3 +131,11 @@ label{
 legend{
     margin-bottom: 20px;
 }
+img{
+    max-width: 20%;
+    max-height: 30%;
+}
+tr{
+   width: 20%; 
+
+}

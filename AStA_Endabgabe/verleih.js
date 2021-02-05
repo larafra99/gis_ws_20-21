@@ -10,7 +10,6 @@ var Aufgabe3_4;
         //console.log(response);
         console.log(responseTextJson);
         console.log(Object.keys(responseTextJson).length);
-        console.log(responseTextJson[1].name);
         let tabl = document.createElement("table");
         let tableheader1 = document.createElement("th");
         let tableheader2 = document.createElement("th");
@@ -27,23 +26,38 @@ var Aufgabe3_4;
             let tableelement1 = document.createElement("td");
             let tableelement2 = document.createElement("td");
             let tableelement3 = document.createElement("td");
-            tableelement1.innerHTML = responseTextJson[i].url;
+            let imag = document.createElement("img");
+            imag.src = "picture/" + responseTextJson[i].url;
             tableelement2.innerHTML = responseTextJson[i].name;
-            tableelement3.innerHTML = responseTextJson[i].status;
+            //console.log(responseTextJson[1].status);
+            if (responseTextJson[i].status == "frei") {
+                console.log("frei");
+                let button = document.createElement("button");
+                button.addEventListener("click", ausleihen);
+                tableelement3.appendChild(button);
+                button.innerHTML = "ausleihen";
+            }
+            else {
+                tableelement3.innerHTML = responseTextJson[i].status;
+            }
             tablerow.appendChild(tableelement1);
             tablerow.appendChild(tableelement2);
             tablerow.appendChild(tableelement3);
+            tableelement1.appendChild(imag);
             tabl.appendChild(tablerow);
         }
-        //console.log(responseText);
-        //let allClients: HTMLElement = document.createElement("p");
-        //document.getElementById("showData").appendChild(allClients);
-        //allClients.innerHTML = responseText;
-        //let names: string[];
-        //if (document.getElementById("name") != null) {
-        //names.push();
-        //console.log(names);
-        //} 
+    }
+    async function ausleihen(_event) {
+        let url = "https://gisws2021.herokuapp.com/ausleihen.html";
+        //url = url + "?" + query.toString();
+        console.log(url);
+        let response = await fetch(url);
+        let responseText = await response.text();
+        //console.log(response);
+        console.log(responseText);
+        let loginText = document.createElement("p");
+        document.getElementById("response").appendChild(loginText);
+        loginText.innerHTML = responseText;
     }
 })(Aufgabe3_4 || (Aufgabe3_4 = {}));
 //# sourceMappingURL=verleih.js.map

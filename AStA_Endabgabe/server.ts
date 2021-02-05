@@ -9,13 +9,15 @@ export namespace Endabgabe {
         nachname: string;
         email: string;
         studiengang: string;
-        passwort: string;    
+        passwort: string;  
+        id?: string;  
     }
 
     interface Daten {
         url: string;
         name: string;
         status: Status;
+        id: string;
     }
 
     interface Status {
@@ -67,9 +69,6 @@ export namespace Endabgabe {
 
         if (_request.url) {
             let q: Url.UrlWithParsedQuery = Url.parse(_request.url, true);   
-            //for (let key in q.query) {
-                //_response.write (key + ":" + q.query[key] + "<br/>");   
-            //}
             let parameter: ParsedUrlQuery = q.query;
 
             if (q.pathname == "/login.html") {
@@ -110,6 +109,9 @@ export namespace Endabgabe {
                 let listUser: Daten[] = await showData();
                 _response.write( JSON.stringify(listUser) );
             }
+            else if (q.pathname == "/ausleihen.html") {
+                console.log("ausleihen");
+            }
         }
 
         _response.end();
@@ -117,6 +119,9 @@ export namespace Endabgabe {
     async function registerien(_client: User): Promise<boolean> { 
         console.log("regstrieren");
         let _suchmail: User = await collection.findOne({"email": _client.email});
+        let id: string = await collection.findOne({"id": _client.id});
+        console.log(id);
+        //sessionStorage.setItem("id", id);
         if (_suchmail != undefined) {
             return false;
         }

@@ -36,26 +36,44 @@ namespace Aufgabe3_4 {
             let tableelement2: HTMLElement = document.createElement("td");
             let tableelement3: HTMLElement = document.createElement("td");
             let imag: HTMLImageElement = document.createElement("img");
-            //tableelement1.innerHTML = responseTextJson[i].url;
-            imag.src = responseTextJson[i].url;
-            tableelement2.innerHTML = responseTextJson[i].name;
-            tableelement3.innerHTML = responseTextJson[i].status;
-            console.log(responseTextJson[1].status);
+            imag.src = "picture/" + responseTextJson[i].url;
+            tableelement2.innerHTML = responseTextJson[i].name; 
+            //console.log(responseTextJson[1].status);
+
             if (responseTextJson[i].status == "frei") {
-                let button: HTMLElement = document.createElement("button");
-                button.appendChild(tableelement3);
+                console.log("frei");
+                let button: HTMLButtonElement = document.createElement("button");
+                button.addEventListener("click", ausleihen);
+                tableelement3.appendChild(button);
+                button.innerHTML = "ausleihen";
             }
+
+            else {
+                tableelement3.innerHTML = responseTextJson[i].status;
+            }
+
             tablerow.appendChild(tableelement1);
             tablerow.appendChild(tableelement2);
             tablerow.appendChild(tableelement3);
             tableelement1.appendChild(imag);
             tabl.appendChild(tablerow);
-            
-            
-            
 
-
-        }
+        }    
 
     }  
+    async function ausleihen(_event: Event): Promise<void> {
+        let url: string = "https://gisws2021.herokuapp.com/ausleihen.html";
+
+        //url = url + "?" + query.toString();
+        console.log(url);
+        let response: Response = await fetch(url);
+        let responseText: string = await response.text();
+        //console.log(response);
+        console.log(responseText);
+
+        let loginText: HTMLElement = document.createElement("p");
+        document.getElementById("response").appendChild(loginText);
+        loginText.innerHTML = responseText; 
+       
+    }
 }
