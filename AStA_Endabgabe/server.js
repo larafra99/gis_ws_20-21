@@ -84,7 +84,7 @@ var Endabgabe;
         console.log("registrieren");
         let _suchmail = await collection.findOne({ "email": _client.email });
         if (!_client.email || !_client.nachname || _client.vorname || _client.passwort) {
-            return true;
+            console.log("hi");
         }
         let user = await collection.findOne({ _client });
         console.log(user);
