@@ -63,7 +63,9 @@ namespace Aufgabe3_4 {
     async function ausleihen(_event: Event): Promise<void> {
         let url: string = "https://gisws2021.herokuapp.com/ausleihen.html";
 
-        //url = url + "?" + query.toString();
+        let id: string = sessionStorage.getItem("userId");
+        console.log(id);
+        url = url + "?" + id;
         console.log(url);
         let response: Response = await fetch(url);
         let responseText: string = await response.text();

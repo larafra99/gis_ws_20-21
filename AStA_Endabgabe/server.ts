@@ -129,7 +129,7 @@ export namespace Endabgabe {
 
     }
     async function showData(): Promise<Daten[]> {
-        let data: Daten[] = await collectionData.find( {}, {projection: { _id: 0}} ).toArray();
+        let data: Daten[] = await collectionData.find().toArray();
         return data;
 
     }

@@ -48,7 +48,9 @@ var Aufgabe3_4;
     }
     async function ausleihen(_event) {
         let url = "https://gisws2021.herokuapp.com/ausleihen.html";
-        //url = url + "?" + query.toString();
+        let id = sessionStorage.getItem("userId");
+        console.log(id);
+        url = url + "?" + id;
         console.log(url);
         let response = await fetch(url);
         let responseText = await response.text();

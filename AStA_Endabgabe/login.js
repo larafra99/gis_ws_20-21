@@ -18,7 +18,8 @@ var Endabgabe;
         let loginText = document.createElement("p");
         document.getElementById("response").appendChild(loginText);
         loginText.innerHTML = responseText;
-        if (responseText) {
+        if (responseText != "null") {
+            sessionStorage.setItem("userId", responseText);
             window.location.replace("verleih.html");
         }
     }
