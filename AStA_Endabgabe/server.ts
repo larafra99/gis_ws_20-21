@@ -129,7 +129,7 @@ export namespace Endabgabe {
         else {
             await collection.insertOne(_client);
             let user: string = await collection.findOne({"email": _client.email}, {projection: { nachname: 0, vorname: 0, email: 0, passwort: 0}});
-            sessionStorage.setItem("id", user);
+            //sessionStorage.setItem("id", user);
             console.log(user);
             return true;
         }
