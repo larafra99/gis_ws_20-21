@@ -104,7 +104,7 @@ var Endabgabe;
         return data;
     }
     async function einloggen(_email, _password) {
-        let daten2 = await collection.findOne({ "email": _email, "passwort": _password });
+        let daten2 = await collection.findOne({ "email": _email }, { projection: { nachname: 0, vorname: 0 } });
         let daten = await collection.countDocuments({ "email": _email, "passwort": _password });
         console.log(daten2.vorname);
         if (daten > 0) {
