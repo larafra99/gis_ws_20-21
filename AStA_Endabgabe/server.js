@@ -100,12 +100,13 @@ var Endabgabe;
         }
     }
     async function showData() {
-        console.log("liste");
         let data = await collectionData.find({}, { projection: { _id: 0 } }).toArray();
         return data;
     }
     async function einloggen(_email, _password) {
+        let daten2 = await collection.findOne({ "email": _email, "passwort": _password });
         let daten = await collection.countDocuments({ "email": _email, "passwort": _password });
+        console.log(daten2);
         if (daten > 0) {
             return true;
         }

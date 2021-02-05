@@ -139,13 +139,15 @@ export namespace Endabgabe {
 
     }
     async function showData(): Promise<Daten[]> {
-        console.log("liste");
         let data: Daten[] = await collectionData.find( {}, {projection: { _id: 0}} ).toArray();
         return data;
 
     }
     async function einloggen(_email: string, _password: string): Promise<boolean> {
+        let daten2: string = await collection.findOne({"email": _email, "passwort": _password});
         let daten: number = await collection.countDocuments({"email": _email, "passwort": _password});
+        
+        console.log(daten2);
         if (daten > 0) {
             return true;
         }
