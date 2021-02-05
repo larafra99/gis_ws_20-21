@@ -104,6 +104,7 @@ export namespace Endabgabe {
             }
             else if (q.pathname == "/ausleihen.html") {
                 console.log("ausleihen");
+                console.log(parameter.dataID);
                 await ausleihen(parameter.userID as string , parameter.dataID as string);
             }
         }
@@ -146,7 +147,7 @@ export namespace Endabgabe {
         let res: string = await collectionData.findOne({_id: (dataId)});
         console.log(res);
         let result: Mongo.UpdateWriteOpResult = await collectionData.updateOne({_id: (dataId)}, {$set: {"reserviert": userId}});
-        //console.log(result);
+        console.log(result);
         
     }
 }

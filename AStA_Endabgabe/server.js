@@ -72,6 +72,7 @@ var Endabgabe;
             }
             else if (q.pathname == "/ausleihen.html") {
                 console.log("ausleihen");
+                console.log(parameter.dataID);
                 await ausleihen(parameter.userID, parameter.dataID);
             }
         }
@@ -108,7 +109,7 @@ var Endabgabe;
         let res = await collectionData.findOne({ _id: (dataId) });
         console.log(res);
         let result = await collectionData.updateOne({ _id: (dataId) }, { $set: { "reserviert": userId } });
-        //console.log(result);
+        console.log(result);
     }
 })(Endabgabe = exports.Endabgabe || (exports.Endabgabe = {}));
 //# sourceMappingURL=server.js.map
