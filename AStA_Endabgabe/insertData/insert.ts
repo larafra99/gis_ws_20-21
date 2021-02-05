@@ -11,16 +11,17 @@ interface Daten {
     url: string;
     name: string;
     status: string;
+    geld: string;
 }
-let d1: Daten = {name: "Beamer", url: "beamer.jpg", status: "frei"};
-let d2: Daten = {name: "Biertischgarnitur", url: "biertischgarnitur.jpg", status: "frei"};
-let d3: Daten = {name: "Kabeltrommel", url: "kabeltrommel.jpg", status: "frei"};
-let d4: Daten = {name: "Kaffemaschine", url: "kaffemaschine.jpg", status: "frei"};
-let d5: Daten = {name: "Kochplatte", url: "kochplatte.jpg", status: "frei"};
-let d6: Daten = {name: "Kühlschrank", url: "kuehlschrank.jpg", status: "frei"};
-let d7: Daten = {name: "Leinwand", url: "leinwand.jpg", status: "frei"};
-let d8: Daten = {name: "Waffeleisen", url: "waffeleisen.jpg", status: "frei"};
-let d9: Daten = {name: "Zelt", url: "zelt.jpg", status: "frei"};
+let d1: Daten = {name: "Beamer", url: "beamer.jpg", status: "frei", geld: "15€"};
+let d2: Daten = {name: "Biertischgarnitur", url: "biertischgarnitur.jpg", status: "frei", geld: "40€"};
+let d3: Daten = {name: "Kabeltrommel", url: "kabeltrommel.jpg", status: "frei", geld: "5€"};
+let d4: Daten = {name: "Kaffemaschine", url: "kaffemaschine.jpg", status: "frei", geld: "20€"};
+let d5: Daten = {name: "Kochplatte", url: "kochplatte.jpg", status: "frei", geld: "10€"};
+let d6: Daten = {name: "Kühlschrank", url: "kuehlschrank.jpg", status: "frei", geld: "30€"};
+let d7: Daten = {name: "Leinwand", url: "leinwand.jpg", status: "frei", geld: "15€"};
+let d8: Daten = {name: "Waffeleisen", url: "waffeleisen.jpg", status: "frei", geld: "10€"};
+let d9: Daten = {name: "Zelt", url: "zelt.jpg", status: "frei", geld: "50€"};
 
 
 //let dataBaseUrl: string = "mongodb://localhost: 27017";

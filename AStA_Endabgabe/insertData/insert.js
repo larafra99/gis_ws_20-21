@@ -7,15 +7,15 @@ let port = Number(process.env.PORT);
 if (port == undefined) {
     port = 8100;
 }
-let d1 = { name: "Beamer", url: "beamer.jpg", status: "frei" };
-let d2 = { name: "Biertischgarnitur", url: "biertischgarnitur.jpg", status: "frei" };
-let d3 = { name: "Kabeltrommel", url: "kabeltrommel.jpg", status: "frei" };
-let d4 = { name: "Kaffemaschine", url: "kaffemaschine.jpg", status: "frei" };
-let d5 = { name: "Kochplatte", url: "kochplatte.jpg", status: "frei" };
-let d6 = { name: "Kühlschrank", url: "kuehlschrank.jpg", status: "frei" };
-let d7 = { name: "Leinwand", url: "leinwand.jpg", status: "frei" };
-let d8 = { name: "Waffeleisen", url: "waffeleisen.jpg", status: "frei" };
-let d9 = { name: "Zelt", url: "zelt.jpg", status: "frei" };
+let d1 = { name: "Beamer", url: "beamer.jpg", status: "frei", geld: "15€" };
+let d2 = { name: "Biertischgarnitur", url: "biertischgarnitur.jpg", status: "frei", geld: "40€" };
+let d3 = { name: "Kabeltrommel", url: "kabeltrommel.jpg", status: "frei", geld: "5€" };
+let d4 = { name: "Kaffemaschine", url: "kaffemaschine.jpg", status: "frei", geld: "20€" };
+let d5 = { name: "Kochplatte", url: "kochplatte.jpg", status: "frei", geld: "10€" };
+let d6 = { name: "Kühlschrank", url: "kuehlschrank.jpg", status: "frei", geld: "30€" };
+let d7 = { name: "Leinwand", url: "leinwand.jpg", status: "frei", geld: "15€" };
+let d8 = { name: "Waffeleisen", url: "waffeleisen.jpg", status: "frei", geld: "10€" };
+let d9 = { name: "Zelt", url: "zelt.jpg", status: "frei", geld: "50€" };
 //let dataBaseUrl: string = "mongodb://localhost: 27017";
 let dataBaseUrl = "mongodb+srv://Reader:Database123@gisws20-21.a07b1.mongodb.net/ASTA?retryWrites=true&w=majority";
 console.log("Starting server");

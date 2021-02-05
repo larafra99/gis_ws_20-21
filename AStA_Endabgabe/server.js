@@ -108,7 +108,7 @@ var Endabgabe;
         console.log("datenbank");
         let res = await collectionData.findOne({ _id: Mongo.ObjectId.createFromHexString(dataId) });
         console.log(res);
-        let result = await collectionData.updateOne({ _id: Mongo.ObjectId.createFromHexString(dataId) }, { $set: { "reserviert": userId, "status": "reserviert" } });
+        await collectionData.updateOne({ _id: Mongo.ObjectId.createFromHexString(dataId) }, { $set: { "reserviert": userId, "status": "reserviert" } });
     }
 })(Endabgabe = exports.Endabgabe || (exports.Endabgabe = {}));
 //# sourceMappingURL=server.js.map

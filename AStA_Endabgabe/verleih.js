@@ -59,9 +59,7 @@ var Aufgabe3_4;
         let responseText = await response.text();
         //console.log(response);
         console.log(responseText);
-        let loginText = document.createElement("p");
-        document.getElementById("response").appendChild(loginText);
-        loginText.innerHTML = responseText;
+        window.location.replace("verleih.html");
     }
 })(Aufgabe3_4 || (Aufgabe3_4 = {}));
 //# sourceMappingURL=verleih.js.map

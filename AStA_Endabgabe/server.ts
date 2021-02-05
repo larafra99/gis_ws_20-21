@@ -146,7 +146,7 @@ export namespace Endabgabe {
         console.log("datenbank");
         let res: string = await collectionData.findOne({_id: Mongo.ObjectId.createFromHexString(dataId)});
         console.log(res);
-        let result: Mongo.UpdateWriteOpResult = await collectionData.updateOne({_id: Mongo.ObjectId.createFromHexString(dataId)}, {$set: {"reserviert": userId, "status": "reserviert"} });
+        await collectionData.updateOne({_id: Mongo.ObjectId.createFromHexString(dataId)}, {$set: {"reserviert": userId, "status": "reserviert"} });
        
         
     }

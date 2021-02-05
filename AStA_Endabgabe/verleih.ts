@@ -75,10 +75,7 @@ namespace Aufgabe3_4 {
         let responseText: string = await response.text();
         //console.log(response);
         console.log(responseText);
-
-        let loginText: HTMLElement = document.createElement("p");
-        document.getElementById("response").appendChild(loginText);
-        loginText.innerHTML = responseText; 
+        window.location.replace("verleih.html"); 
        
     }
 }
