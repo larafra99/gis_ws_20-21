@@ -6,7 +6,9 @@ var Endabgabe;
     regButton.addEventListener("click", register);
     async function register(_event) {
         let formData = new FormData(regForm);
+        console.log(formData);
         let query = new URLSearchParams(formData);
+        console.log(query.toString());
         // http:://herokuapp/register.html?user=...&
         let url = "https://gisws2021.herokuapp.com/register.html";
         url = url + "?" + query.toString();
@@ -19,7 +21,7 @@ var Endabgabe;
         document.getElementById("registerAnswer").appendChild(registerText);
         registerText.innerHTML = responseText;
         if (responseText == "Nutzer wurde erstellt") {
-            window.location.replace("verleih.html");
+            //window.location.replace("verleih.html");
         }
     }
 })(Endabgabe || (Endabgabe = {}));

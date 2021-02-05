@@ -98,7 +98,7 @@ export namespace Endabgabe {
                     
                 }
                 else {
-                    _response.write("Emailadresse ist schon vergeben bitte nutzen sie Login");
+                    _response.write("Emailadresse ist schon vergeben oder Felder sind leer");
                 }    
             }
 
@@ -117,6 +117,9 @@ export namespace Endabgabe {
     async function registerien(_client: User): Promise<boolean> { 
         console.log("registrieren");
         let _suchmail: User = await collection.findOne({"email": _client.email});
+        if (!_client.email || !_client.nachname || _client.vorname || _client.passwort) {
+            return true;
+        }
         let user: User = await collection.findOne({_client});
         console.log(user);
         //sessionStorage.setItem("id", _client.id);
