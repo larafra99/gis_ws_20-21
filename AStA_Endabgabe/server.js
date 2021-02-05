@@ -84,7 +84,7 @@ var Endabgabe;
         console.log("registrieren");
         let _suchmail = await collection.findOne({ "email": _client.email });
         //console.log(_client.id);
-        //sessionStorage.setItem("id", _client.id);
+        sessionStorage.setItem("id", _client.id);
         //console.log(sessionStorage.getItem("id"));
         if (_suchmail != undefined) {
             return false;
