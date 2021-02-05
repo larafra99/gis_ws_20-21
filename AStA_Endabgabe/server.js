@@ -83,14 +83,15 @@ var Endabgabe;
     async function registerien(_client) {
         console.log("registrieren");
         let _suchmail = await collection.findOne({ "email": _client.email });
-        if (!_client.email || !_client.nachname || !_client.vorname || !_client.passwort) {
-            return false;
-        }
+        console.log(_suchmail);
         let user = await collection.findOne({ _client });
         console.log(user);
         //sessionStorage.setItem("id", _client.id);
         //console.log(sessionStorage.getItem("id"));
-        if (_suchmail != undefined) {
+        if (!_client.email || !_client.nachname || !_client.vorname || !_client.passwort) {
+            return false;
+        }
+        else if (_suchmail != undefined) {
             return false;
         }
         else {

@@ -21,7 +21,7 @@ var Endabgabe;
         document.getElementById("registerAnswer").appendChild(registerText);
         registerText.innerHTML = responseText;
         if (responseText == "Nutzer wurde erstellt") {
-            //window.location.replace("verleih.html");
+            window.location.replace("verleih.html");
         }
     }
 })(Endabgabe || (Endabgabe = {}));
