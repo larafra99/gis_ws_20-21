@@ -54,7 +54,7 @@ export namespace Endabgabe {
         await mongoClient.connect();
         collection = mongoClient.db("ASTA").collection("User");
         collectionData =  mongoClient.db("ASTA").collection("Data");
-        console.log("Database connection sucessfull User", collection != undefined);
+        console.log("Database connection sucessfull ", collection != undefined);
     }
 
     function handleListen(): void {
@@ -144,7 +144,7 @@ export namespace Endabgabe {
 
     }
     async function einloggen(_email: string, _password: string): Promise<boolean> {
-        let daten2: string = await collection.findOne({"email": _email, "passwort": _password});
+        let daten2: User = await collection.findOne({"email": _email, "passwort": _password});
         let daten: number = await collection.countDocuments({"email": _email, "passwort": _password});
         
         console.log(daten2);

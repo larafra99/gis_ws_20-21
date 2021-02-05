@@ -30,7 +30,7 @@ var Endabgabe;
         await mongoClient.connect();
         collection = mongoClient.db("ASTA").collection("User");
         collectionData = mongoClient.db("ASTA").collection("Data");
-        console.log("Database connection sucessfull User", collection != undefined);
+        console.log("Database connection sucessfull ", collection != undefined);
     }
     function handleListen() {
         console.log(" listening");
