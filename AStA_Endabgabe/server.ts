@@ -119,7 +119,7 @@ export namespace Endabgabe {
         let _suchmail: User = await collection.findOne({"email": _client.email});
         console.log(_suchmail);
 
-        let user: User = await collection.findOne({_client});
+        let user: User = await collection.findOne({"email": _client.email});
         console.log(user);
         //sessionStorage.setItem("id", _client.id);
         //console.log(sessionStorage.getItem("id"));
