@@ -84,9 +84,9 @@ var Endabgabe;
     async function registerien(_client) {
         console.log("registrieren");
         let _suchmail = await collection.findOne({ "email": _client.email });
-        let id = await collection.findOne({ "id": _client.id });
-        console.log(_client.id);
-        //sessionStorage.setItem("id", id);
+        //console.log(_client.id);
+        sessionStorage.setItem("id", _client.id);
+        console.log(sessionStorage.getItem("id"));
         if (_suchmail != undefined) {
             return false;
         }
