@@ -60,7 +60,7 @@ var Endabgabe;
                     email: parameter.email,
                     passwort: parameter.password
                 };
-                console.log(users);
+                //console.log(users);
                 let resultreg = await registerien(users);
                 if (resultreg) {
                     _response.write("Nutzer wurde erstellt");
@@ -84,7 +84,7 @@ var Endabgabe;
         console.log("registrieren");
         let _suchmail = await collection.findOne({ "email": _client.email });
         let string = _suchmail.id;
-        console.log(string);
+        console.log(_suchmail);
         //sessionStorage.setItem("id", _client.id);
         //console.log(sessionStorage.getItem("id"));
         if (_suchmail != undefined) {
