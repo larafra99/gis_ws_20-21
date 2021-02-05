@@ -144,9 +144,9 @@ export namespace Endabgabe {
     }
     async function ausleihen( userId: string , dataId: string): Promise<void> {
         console.log("datenbank");
-        let res: string = await collectionData.findOne({_id: dataId});
+        let res: string = await collectionData.findOne({_id: Mongo.ObjectId.createFromHexString(dataId)});
         console.log(res);
-        let result: Mongo.UpdateWriteOpResult = await collectionData.updateOne({_id: (dataId)}, {$set: {"reserviert": userId}});
+        let result: Mongo.UpdateWriteOpResult = await collectionData.updateOne({_id: Mongo.ObjectId.createFromHexString(dataId)}, {$set: {"reserviert": userId}});
         console.log(result);
         
     }

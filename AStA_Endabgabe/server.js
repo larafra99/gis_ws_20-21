@@ -106,9 +106,9 @@ var Endabgabe;
     }
     async function ausleihen(userId, dataId) {
         console.log("datenbank");
-        let res = await collectionData.findOne({ _id: dataId });
+        let res = await collectionData.findOne({ _id: Mongo.ObjectId.createFromHexString(dataId) });
         console.log(res);
-        let result = await collectionData.updateOne({ _id: (dataId) }, { $set: { "reserviert": userId } });
+        let result = await collectionData.updateOne({ _id: Mongo.ObjectId.createFromHexString(dataId) }, { $set: { "reserviert": userId } });
         console.log(result);
     }
 })(Endabgabe = exports.Endabgabe || (exports.Endabgabe = {}));
