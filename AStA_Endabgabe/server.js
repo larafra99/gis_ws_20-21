@@ -58,7 +58,6 @@ var Endabgabe;
                     vorname: parameter.fname,
                     nachname: parameter.lname,
                     email: parameter.email,
-                    studiengang: parameter.studiengang,
                     passwort: parameter.password
                 };
                 console.log(users);

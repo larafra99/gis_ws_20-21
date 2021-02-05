@@ -8,7 +8,6 @@ export namespace Endabgabe {
         vorname: string;
         nachname: string;
         email: string;
-        studiengang: string;
         passwort: string;  
         id?: string;  
     }
@@ -89,7 +88,6 @@ export namespace Endabgabe {
                     vorname: parameter.fname as string,
                     nachname: parameter.lname as string,
                     email: parameter.email as string,
-                    studiengang: parameter.studiengang as string,
                     passwort: parameter.password as string
                 };
 
