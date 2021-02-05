@@ -66,7 +66,7 @@ var Endabgabe;
                     _response.write("Nutzer wurde erstellt");
                 }
                 else {
-                    _response.write("Emailadresse ist schon vergeben oder Felder sind leer");
+                    _response.write("Emailadresse ist schon vergeben oder Felder sind");
                 }
             }
             else if (q.pathname == "/verleih.html") {
@@ -83,8 +83,8 @@ var Endabgabe;
     async function registerien(_client) {
         console.log("registrieren");
         let _suchmail = await collection.findOne({ "email": _client.email });
-        if (!_client.email || !_client.nachname || _client.vorname || _client.passwort) {
-            console.log("hi");
+        if (!_client.email || !_client.nachname || !_client.vorname || !_client.passwort) {
+            return true;
         }
         let user = await collection.findOne({ _client });
         console.log(user);
