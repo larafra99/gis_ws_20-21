@@ -83,7 +83,7 @@ export namespace Endabgabe {
 
             else if (q.pathname == "/register.html") {
                 console.log("registieren erfolgreich");
-                sessionStorage.clear();
+                //sessionStorage.clear();
 
                 let users: User = {
                     vorname: parameter.fname as string,

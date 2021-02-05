@@ -55,7 +55,7 @@ var Endabgabe;
             }
             else if (q.pathname == "/register.html") {
                 console.log("registieren erfolgreich");
-                sessionStorage.clear();
+                //sessionStorage.clear();
                 let users = {
                     vorname: parameter.fname,
                     nachname: parameter.lname,
