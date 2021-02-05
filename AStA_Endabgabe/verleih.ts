@@ -5,6 +5,7 @@ namespace Aufgabe3_4 {
         url: string;
         name: string;
         status: string;
+        geld: string;
         _id: string;
     }
 
@@ -22,13 +23,16 @@ namespace Aufgabe3_4 {
         let tableheader1: HTMLElement = document.createElement("th");
         let tableheader2: HTMLElement = document.createElement("th");
         let tableheader3: HTMLElement = document.createElement("th");
+        let tableheader4: HTMLElement = document.createElement("th");
         tableheader1.innerHTML = "Bild";
         tableheader2.innerHTML = "Name";
         tableheader3.innerHTML = "Status";
+        tableheader4.innerHTML = "Ausleihgebühr";
         document.getElementById("showData").appendChild(tabl);
         tabl.appendChild(tableheader1);
         tabl.appendChild(tableheader2);
         tabl.appendChild(tableheader3);
+        tabl.appendChild(tableheader4);
             
         for ( let i: number = 0; i < Object.keys(responseTextJson).length; i++) {
 
@@ -36,9 +40,11 @@ namespace Aufgabe3_4 {
             let tableelement1: HTMLElement = document.createElement("td");
             let tableelement2: HTMLElement = document.createElement("td");
             let tableelement3: HTMLElement = document.createElement("td");
+            let tableelement4: HTMLElement = document.createElement("td");
             let imag: HTMLImageElement = document.createElement("img");
             imag.src = "picture/" + responseTextJson[i].url;
             tableelement2.innerHTML = responseTextJson[i].name; 
+            tableelement4.innerHTML = responseTextJson[i].geld; 
             //console.log(responseTextJson[1].status);
 
             if (responseTextJson[i].status == "frei") {
@@ -57,6 +63,7 @@ namespace Aufgabe3_4 {
             tablerow.appendChild(tableelement1);
             tablerow.appendChild(tableelement2);
             tablerow.appendChild(tableelement3);
+            tablerow.appendChild(tableelement4);
             tableelement1.appendChild(imag);
             tabl.appendChild(tablerow);
 
