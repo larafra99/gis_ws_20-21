@@ -46,7 +46,7 @@ var Endabgabe;
                 console.log("einloggen");
                 let result = await einloggen(parameter.email, parameter.password);
                 console.log("Login:", result);
-                _response.write(result.toString);
+                _response.write(JSON.stringify(result));
             }
             else if (q.pathname == "/register.html") {
                 console.log("registieren erfolgreich");
