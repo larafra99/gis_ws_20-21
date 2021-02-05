@@ -144,7 +144,7 @@ export namespace Endabgabe {
 
     }
     async function einloggen(_email: string, _password: string): Promise<boolean> {
-        let daten2: User = await collection.findOne({"email": _email}, {projection: { nachname: 0, vorname: 0, email: 0, password: 0}} );
+        let daten2: User = await collection.findOne({"email": _email}, {projection: { nachname: 0, vorname: 0, email: 0, passwort: 0}} );
         let daten: number = await collection.countDocuments({"email": _email, "passwort": _password});
         
         console.log(daten2);
