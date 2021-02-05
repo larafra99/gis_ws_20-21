@@ -34,7 +34,7 @@ async function connectToDatabase(_url) {
     let mongoClient = new Mongo.MongoClient(_url, options);
     await mongoClient.connect();
     collection = mongoClient.db("ASTA").collection("Data");
-    console.log("Database connection sucessfull", collection != undefined);
+    console.log("Database connection sucessfull Data", collection != undefined);
 }
 function handleListen() {
     console.log(" listening");
