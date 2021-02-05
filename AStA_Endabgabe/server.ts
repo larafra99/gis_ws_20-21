@@ -147,7 +147,7 @@ export namespace Endabgabe {
         let daten2: User = await collection.findOne({"email": _email, "passwort": _password});
         let daten: number = await collection.countDocuments({"email": _email, "passwort": _password});
         
-        console.log(daten2.id);
+        console.log(daten2.vorname);
         if (daten > 0) {
             return true;
         }
