@@ -20,7 +20,7 @@ namespace Endabgabe {
         let loginText: HTMLElement = document.createElement("p");
         document.getElementById("response").appendChild(loginText);
         loginText.innerHTML = responseText; 
-        if (responseText == "Sie sind eingelogt") {
+        if (responseText) {
             window.location.replace("verleih.html");
         }
 
