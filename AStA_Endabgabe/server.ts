@@ -117,7 +117,7 @@ export namespace Endabgabe {
     async function registerien(_client: User): Promise<boolean> { 
         console.log("registrieren");
         let _suchmail: User = await collection.findOne({"email": _client.email});
-        let string: string = _client.id;
+        let string: string = _suchmail.id;
         console.log(string);
         //sessionStorage.setItem("id", _client.id);
         //console.log(sessionStorage.getItem("id"));
