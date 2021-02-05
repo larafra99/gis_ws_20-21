@@ -82,10 +82,10 @@ var Endabgabe;
         _response.end();
     }
     async function registerien(_client) {
-        console.log("regstrieren");
+        console.log("registrieren");
         let _suchmail = await collection.findOne({ "email": _client.email });
         let id = await collection.findOne({ "id": _client.id });
-        console.log(id);
+        console.log(_client.id);
         //sessionStorage.setItem("id", id);
         if (_suchmail != undefined) {
             return false;
