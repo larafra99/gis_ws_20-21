@@ -73,7 +73,7 @@ export namespace Endabgabe {
                 console.log("einloggen");
                 let result: string =  await einloggen(parameter.email as string , parameter.password as string);
                 console.log("Login:", result);
-                _response.write(result);
+                _response.write(result as string);
             }
 
             else if (q.pathname == "/register.html") {
