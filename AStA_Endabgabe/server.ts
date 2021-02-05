@@ -8,8 +8,7 @@ export namespace Endabgabe {
         vorname: string;
         nachname: string;
         email: string;
-        passwort: string;  
-        id?: string;  
+        passwort: string;    
     }
 
     interface Daten {
@@ -72,6 +71,7 @@ export namespace Endabgabe {
 
             if (q.pathname == "/login.html") {
                 console.log("einloggen");
+                sessionStorage.clear();
                 let result: boolean =  await einloggen(parameter.email as string , parameter.password as string);
                 if (result) {
                     _response.write("Sie sind eingelogt");
@@ -83,6 +83,7 @@ export namespace Endabgabe {
 
             else if (q.pathname == "/register.html") {
                 console.log("registieren erfolgreich");
+                sessionStorage.clear();
 
                 let users: User = {
                     vorname: parameter.fname as string,
@@ -117,13 +118,7 @@ export namespace Endabgabe {
     async function registerien(_client: User): Promise<boolean> { 
         console.log("registrieren");
         let _suchmail: User = await collection.findOne({"email": _client.email});
-        console.log(_suchmail);
-
-        let user: User = await collection.findOne({"email": _client.email});
-        console.log(user);
-        //sessionStorage.setItem("id", _client.id);
-        //console.log(sessionStorage.getItem("id"));
-       
+        console.log(_suchmail);      
 
         if (!_client.email || !_client.nachname || !_client.vorname || !_client.passwort) {
             return false;
@@ -133,6 +128,9 @@ export namespace Endabgabe {
         }
         else {
             await collection.insertOne(_client);
+            let user: string = await collection.findOne({"email": _client.email}, {projection: { nachname: 0, vorname: 0, email: 0, passwort: 0}});
+            sessionStorage.setItem("id", user);
+            console.log(user);
             return true;
         }
         
@@ -144,10 +142,11 @@ export namespace Endabgabe {
 
     }
     async function einloggen(_email: string, _password: string): Promise<boolean> {
-        let daten2: User = await collection.findOne({"email": _email}, {projection: { nachname: 0, vorname: 0, email: 0, passwort: 0}} );
+        let daten2: string = await collection.findOne({"email": _email}, {projection: { nachname: 0, vorname: 0, email: 0, passwort: 0}} );
         let daten: number = await collection.countDocuments({"email": _email, "passwort": _password});
         
         console.log(daten2);
+        sessionStorage.setItem("id", daten2);
         if (daten > 0) {
             return true;
         }

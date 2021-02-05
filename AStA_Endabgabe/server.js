@@ -44,6 +44,7 @@ var Endabgabe;
             let parameter = q.query;
             if (q.pathname == "/login.html") {
                 console.log("einloggen");
+                sessionStorage.clear();
                 let result = await einloggen(parameter.email, parameter.password);
                 if (result) {
                     _response.write("Sie sind eingelogt");
@@ -54,6 +55,7 @@ var Endabgabe;
             }
             else if (q.pathname == "/register.html") {
                 console.log("registieren erfolgreich");
+                sessionStorage.clear();
                 let users = {
                     vorname: parameter.fname,
                     nachname: parameter.lname,
@@ -84,10 +86,6 @@ var Endabgabe;
         console.log("registrieren");
         let _suchmail = await collection.findOne({ "email": _client.email });
         console.log(_suchmail);
-        let user = await collection.findOne({ "email": _client.email });
-        console.log(user);
-        //sessionStorage.setItem("id", _client.id);
-        //console.log(sessionStorage.getItem("id"));
         if (!_client.email || !_client.nachname || !_client.vorname || !_client.passwort) {
             return false;
         }
@@ -96,6 +94,9 @@ var Endabgabe;
         }
         else {
             await collection.insertOne(_client);
+            let user = await collection.findOne({ "email": _client.email }, { projection: { nachname: 0, vorname: 0, email: 0, passwort: 0 } });
+            sessionStorage.setItem("id", user);
+            console.log(user);
             return true;
         }
     }
@@ -107,6 +108,7 @@ var Endabgabe;
         let daten2 = await collection.findOne({ "email": _email }, { projection: { nachname: 0, vorname: 0, email: 0, passwort: 0 } });
         let daten = await collection.countDocuments({ "email": _email, "passwort": _password });
         console.log(daten2);
+        sessionStorage.setItem("id", daten2);
         if (daten > 0) {
             return true;
         }

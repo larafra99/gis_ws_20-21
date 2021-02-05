@@ -41,7 +41,6 @@ namespace Aufgabe3_4 {
             //console.log(responseTextJson[1].status);
 
             if (responseTextJson[i].status == "frei") {
-                console.log("frei");
                 let button: HTMLButtonElement = document.createElement("button");
                 button.addEventListener("click", ausleihen);
                 tableelement3.appendChild(button);

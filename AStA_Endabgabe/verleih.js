@@ -31,7 +31,6 @@ var Aufgabe3_4;
             tableelement2.innerHTML = responseTextJson[i].name;
             //console.log(responseTextJson[1].status);
             if (responseTextJson[i].status == "frei") {
-                console.log("frei");
                 let button = document.createElement("button");
                 button.addEventListener("click", ausleihen);
                 tableelement3.appendChild(button);
