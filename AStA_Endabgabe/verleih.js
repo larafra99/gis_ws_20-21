@@ -33,6 +33,8 @@ var Aufgabe3_4;
             if (responseTextJson[i].status == "frei") {
                 let button = document.createElement("button");
                 button.addEventListener("click", ausleihen);
+                button.id = responseTextJson[i]._id;
+                //console.log(responseTextJson[i]._id);
                 tableelement3.appendChild(button);
                 button.innerHTML = "ausleihen";
             }
@@ -48,9 +50,10 @@ var Aufgabe3_4;
     }
     async function ausleihen(_event) {
         let url = "https://gisws2021.herokuapp.com/ausleihen.html";
-        let id = sessionStorage.getItem("userId");
-        console.log(id);
-        url = url + "?" + id;
+        let userId = sessionStorage.getItem("userId");
+        let dataId = _event.target.id;
+        console.log(dataId);
+        url = url + "?" + "userID=" + userId + "&dataID=" + dataId;
         console.log(url);
         let response = await fetch(url);
         let responseText = await response.text();

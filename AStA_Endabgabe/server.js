@@ -72,6 +72,7 @@ var Endabgabe;
             }
             else if (q.pathname == "/ausleihen.html") {
                 console.log("ausleihen");
+                await ausleihen(parameter.userID, parameter.dataID);
             }
         }
         _response.end();
@@ -101,6 +102,10 @@ var Endabgabe;
         //let daten: number = await collection.countDocuments({"email": _email, "passwort": _password});
         console.log(daten2);
         return daten2;
+    }
+    async function ausleihen(userId, dataId) {
+        console.log("datenbank");
+        await collectionData.updateOne({ "_id": dataId }, { "reserviert": userId });
     }
 })(Endabgabe = exports.Endabgabe || (exports.Endabgabe = {}));
 //# sourceMappingURL=server.js.map

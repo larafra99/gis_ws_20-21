@@ -104,6 +104,7 @@ export namespace Endabgabe {
             }
             else if (q.pathname == "/ausleihen.html") {
                 console.log("ausleihen");
+                await ausleihen(parameter.userID as string , parameter.dataID as string);
             }
         }
 
@@ -139,5 +140,10 @@ export namespace Endabgabe {
         
         console.log(daten2);
         return daten2;
+    }
+    async function ausleihen( userId: string , dataId: string): Promise<void> {
+        console.log("datenbank");
+        await collectionData.updateOne({"_id": dataId}, {"reserviert": userId});
+        
     }
 }
