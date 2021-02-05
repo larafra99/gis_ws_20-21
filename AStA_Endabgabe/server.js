@@ -105,7 +105,7 @@ var Endabgabe;
     }
     async function ausleihen(userId, dataId) {
         console.log("datenbank");
-        await collectionData.updateOne({ "_id": dataId }, { "reserviert": userId });
+        await collectionData.updateOne({ "_id": (dataId) }, { $set: { "reserviert": userId } });
     }
 })(Endabgabe = exports.Endabgabe || (exports.Endabgabe = {}));
 //# sourceMappingURL=server.js.map

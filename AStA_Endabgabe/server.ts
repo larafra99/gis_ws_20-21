@@ -143,7 +143,7 @@ export namespace Endabgabe {
     }
     async function ausleihen( userId: string , dataId: string): Promise<void> {
         console.log("datenbank");
-        await collectionData.updateOne({"_id": dataId}, {"reserviert": userId});
+        await collectionData.updateOne({"_id": (dataId)}, {$set: {"reserviert": userId}});
         
     }
 }
