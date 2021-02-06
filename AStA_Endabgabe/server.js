@@ -81,8 +81,15 @@ var Endabgabe;
                 console.log(nutzer);
                 _response.write(JSON.stringify(nutzer));
             }
+            else if (q.pathname == "/astaverleihausleihen.html") {
+                console.log("astaverleih");
+                console.log(parameter.buttonID);
+                await astaverleih(parameter.buttonID);
+            }
             else if (q.pathname == "/astaverleih.html") {
                 console.log("astaverleih");
+                console.log(parameter.buttonID);
+                await astaverleihfrei(parameter.buttonID);
             }
         }
         _response.end();
@@ -114,16 +121,21 @@ var Endabgabe;
         return daten2;
     }
     async function ausleihen(userId, dataId) {
-        console.log("datenbank");
         let res = await collectionData.findOne({ _id: Mongo.ObjectId.createFromHexString(dataId) });
         console.log(res);
         await collectionData.updateOne({ _id: Mongo.ObjectId.createFromHexString(dataId) }, { $set: { "reserviert": userId, "status": "reserviert" } });
     }
     async function showuser(userID) {
-        console.log("User");
         let user = await collection.findOne({ _id: Mongo.ObjectId.createFromHexString(userID) }, { projection: { _id: 0, email: 0, passwort: 0 } });
-        console.log(user);
         return user;
+    }
+    async function astaverleih(buttonId) {
+        console.log("datenbank");
+        await collectionData.updateOne({ _id: Mongo.ObjectId.createFromHexString(buttonId) }, { $set: { "reserviert": null, "status": "ausgeliehen" } });
+    }
+    async function astaverleihfrei(buttonId) {
+        console.log("datenbank");
+        await collectionData.updateOne({ _id: Mongo.ObjectId.createFromHexString(buttonId) }, { $set: { "reserviert": null, "status": "frei" } });
     }
 })(Endabgabe = exports.Endabgabe || (exports.Endabgabe = {}));
 //# sourceMappingURL=server.js.map

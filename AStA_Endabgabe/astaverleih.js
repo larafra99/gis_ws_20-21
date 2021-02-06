@@ -33,7 +33,7 @@ var Aufgabe3_4;
             let imag = document.createElement("img");
             imag.src = "picture/" + responseTextJson[i].url;
             tableelement2.innerHTML = responseTextJson[i].name;
-            tableelement4.innerHTML = responseTextJson[i].reserviert;
+            //tableelement4.innerHTML = responseTextJson[i].reserviert; 
             //console.log(responseTextJson[1].status);
             console.log(sessionStorage.getItem("userId"));
             //console.log("respone" + responseTextJson[i].reserviert );
@@ -43,8 +43,9 @@ var Aufgabe3_4;
                 button.id = responseTextJson[i]._id;
                 //console.log(responseTextJson[i]._id);
                 tableelement3.appendChild(button);
-                button.innerHTML = "ausgeliehen";
-                await gettingUser(responseTextJson[i].reserviert);
+                button.innerHTML = "verleihen";
+                let nutzer = await gettingUser(responseTextJson[i].reserviert);
+                tableelement4.innerHTML = nutzer;
             }
             else if (responseTextJson[i].status == "ausgeliehen") {
                 let button = document.createElement("button");
@@ -53,7 +54,8 @@ var Aufgabe3_4;
                 //console.log(responseTextJson[i]._id);
                 tableelement3.appendChild(button);
                 button.innerHTML = "frei";
-                await gettingUser(responseTextJson[i].reserviert);
+                let nutzer = await gettingUser(responseTextJson[i].reserviert);
+                tableelement4.innerHTML = nutzer;
             }
             else {
                 tableelement3.innerHTML = responseTextJson[i].status;
@@ -75,22 +77,23 @@ var Aufgabe3_4;
             console.log(url);
             let response = await fetch(url);
             let responseText = await response.text();
+            return responseText;
         }
-        //console.log(response);
-        //console.log(responseText);
+        else {
+            return null;
+        }
     }
     async function ausgeliehen(_event) {
-        let url = "https://gisws2021.herokuapp.com/astaverleih.html";
-        let userId = sessionStorage.getItem("userId");
-        let dataId = _event.target.id;
-        console.log(dataId);
-        url = url + "?" + "userID=" + userId + "&dataID=" + dataId;
+        let url = "https://gisws2021.herokuapp.com/astaverleihausleihen.html";
+        let selection = _event.target.id;
+        console.log("Button" + selection);
+        url = url + "?" + "buttonID=" + selection;
         console.log(url);
         let response = await fetch(url);
         let responseText = await response.text();
         //console.log(response);
         console.log(responseText);
-        window.location.replace("astaverleih.html");
+        //window.location.replace("astaverleih.html");  
     }
     async function frei(_event) {
         let url = "https://gisws2021.herokuapp.com/astaverleih.html";

@@ -45,7 +45,7 @@ namespace Aufgabe3_4 {
             let imag: HTMLImageElement = document.createElement("img");
             imag.src = "picture/" + responseTextJson[i].url;
             tableelement2.innerHTML = responseTextJson[i].name; 
-            tableelement4.innerHTML = responseTextJson[i].reserviert; 
+            //tableelement4.innerHTML = responseTextJson[i].reserviert; 
             //console.log(responseTextJson[1].status);
             console.log(sessionStorage.getItem("userId"));
             //console.log("respone" + responseTextJson[i].reserviert );
@@ -56,8 +56,9 @@ namespace Aufgabe3_4 {
                 button.id = responseTextJson[i]._id;
                 //console.log(responseTextJson[i]._id);
                 tableelement3.appendChild(button);
-                button.innerHTML = "ausgeliehen";
-                await gettingUser(responseTextJson[i].reserviert);
+                button.innerHTML = "verleihen";
+                let nutzer: string = await gettingUser(responseTextJson[i].reserviert);
+                tableelement4.innerHTML = nutzer; 
             }
             else if (responseTextJson[i].status == "ausgeliehen") {
                 let button: HTMLButtonElement = document.createElement("button");
@@ -66,7 +67,8 @@ namespace Aufgabe3_4 {
                 //console.log(responseTextJson[i]._id);
                 tableelement3.appendChild(button);
                 button.innerHTML = "frei";
-                await gettingUser(responseTextJson[i].reserviert);
+                let nutzer: string = await gettingUser(responseTextJson[i].reserviert);
+                tableelement4.innerHTML = nutzer; 
             }
             else {
                 tableelement3.innerHTML = responseTextJson[i].status;
@@ -85,7 +87,7 @@ namespace Aufgabe3_4 {
         }    
 
     }
-    async function gettingUser(user: string): Promise<void> {
+    async function gettingUser(user: string): Promise<string> {
         let url: string = "https://gisws2021.herokuapp.com/showUser.html";
         if (user != "null") {
             let userid: string = user.substr(8, user.length - 10);
@@ -94,25 +96,25 @@ namespace Aufgabe3_4 {
             console.log(url);
             let response: Response = await fetch(url);
             let responseText: string = await response.text();
-
+            return responseText;
+        }
+        else {
+            return null;
         }
         
-        //console.log(response);
-        //console.log(responseText);
+        
     }  
     async function ausgeliehen(_event: Event): Promise<void> {
-        let url: string = "https://gisws2021.herokuapp.com/astaverleih.html";
-
-        let userId: string = sessionStorage.getItem("userId");
-        let dataId: string = (_event.target as HTMLImageElement).id;
-        console.log(dataId);
-        url = url + "?" + "userID=" + userId + "&dataID=" + dataId;
+        let url: string = "https://gisws2021.herokuapp.com/astaverleihausleihen.html";
+        let selection: string = (_event.target as HTMLImageElement).id;
+        console.log("Button" + selection);
+        url = url + "?" + "buttonID=" + selection;
         console.log(url);
         let response: Response = await fetch(url);
         let responseText: string = await response.text();
         //console.log(response);
         console.log(responseText);
-        window.location.replace("astaverleih.html");  
+        //window.location.replace("astaverleih.html");  
        
     }
     async function frei(_event: Event): Promise<void> {

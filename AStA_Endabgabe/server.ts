@@ -114,8 +114,16 @@ export namespace Endabgabe {
                 _response.write(JSON.stringify(nutzer));
 
             }
+            else if (q.pathname == "/astaverleihausleihen.html") {
+                console.log("astaverleih");
+                console.log(parameter.buttonID);
+                await astaverleih(parameter.buttonID as string);
+
+            }
             else if (q.pathname == "/astaverleih.html") {
                 console.log("astaverleih");
+                console.log(parameter.buttonID);
+                await astaverleihfrei(parameter.buttonID as string);
 
             }
         }
@@ -154,17 +162,22 @@ export namespace Endabgabe {
         return daten2;
     }
     async function ausleihen( userId: string , dataId: string): Promise<void> {
-        console.log("datenbank");
         let res: string = await collectionData.findOne({_id: Mongo.ObjectId.createFromHexString(dataId)});
         console.log(res);
         await collectionData.updateOne({_id: Mongo.ObjectId.createFromHexString(dataId)}, {$set: {"reserviert": userId, "status": "reserviert"} });  
     }
     async function showuser(userID: string): Promise<string> {
-        console.log("User");
         let user: string = await collection.findOne({_id: Mongo.ObjectId.createFromHexString(userID)}, {projection: { _id: 0, email: 0, passwort: 0}} );
-        console.log(user);
-        return user;
-        
-
+        return user;   
     }
+    async function astaverleih(buttonId: string): Promise<void> {
+        console.log("datenbank");
+        await collectionData.updateOne({_id: Mongo.ObjectId.createFromHexString(buttonId)}, {$set: {"reserviert": null, "status": "ausgeliehen"} });  
+    }
+    async function astaverleihfrei(buttonId: string): Promise<void> {
+        console.log("datenbank");
+        await collectionData.updateOne({_id: Mongo.ObjectId.createFromHexString(buttonId)}, {$set: {"reserviert": null, "status": "frei"} });  
+    }
+
+    
 }
