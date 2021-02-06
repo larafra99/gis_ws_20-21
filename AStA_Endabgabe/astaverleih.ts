@@ -89,7 +89,7 @@ namespace Aufgabe3_4 {
     }
     async function gettingUser(user: string): Promise<string> {
         let url: string = "https://gisws2021.herokuapp.com/showUser.html";
-        if (user != "null") {
+        if (user != "null" || null) {
             let userid: string = user.substr(8, user.length - 10);
             console.log(userid);
             url = url + "?" + "userID=" + userid;
@@ -99,7 +99,7 @@ namespace Aufgabe3_4 {
             return responseText;
         }
         else {
-            return null;
+            return "null";
         }
         
         
@@ -114,22 +114,18 @@ namespace Aufgabe3_4 {
         let responseText: string = await response.text();
         //console.log(response);
         console.log(responseText);
-        //window.location.replace("astaverleih.html");  
-       
+        window.location.replace("astaverleih.html");    
     }
     async function frei(_event: Event): Promise<void> {
         let url: string = "https://gisws2021.herokuapp.com/astaverleih.html";
-
-        let userId: string = sessionStorage.getItem("userId");
-        let dataId: string = (_event.target as HTMLImageElement).id;
-        console.log(dataId);
-        url = url + "?" + "userID=" + userId + "&dataID=" + dataId;
+        let selection: string = (_event.target as HTMLImageElement).id;
+        console.log("Button" + selection);
+        url = url + "?" + "buttonID=" + selection;
         console.log(url);
         let response: Response = await fetch(url);
         let responseText: string = await response.text();
         //console.log(response);
         console.log(responseText);
         window.location.replace("astaverleih.html"); 
-       
     }
 }

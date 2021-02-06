@@ -131,11 +131,11 @@ var Endabgabe;
     }
     async function astaverleih(buttonId) {
         console.log("datenbank");
-        await collectionData.updateOne({ _id: Mongo.ObjectId.createFromHexString(buttonId) }, { $set: { "reserviert": null, "status": "ausgeliehen" } });
+        await collectionData.updateOne({ _id: Mongo.ObjectId.createFromHexString(buttonId) }, { $set: { "status": "ausgeliehen" } });
     }
     async function astaverleihfrei(buttonId) {
         console.log("datenbank");
-        await collectionData.updateOne({ _id: Mongo.ObjectId.createFromHexString(buttonId) }, { $set: { "reserviert": null, "status": "frei" } });
+        await collectionData.updateOne({ _id: Mongo.ObjectId.createFromHexString(buttonId) }, { $set: { "reserviert": "null", "status": "frei" } });
     }
 })(Endabgabe = exports.Endabgabe || (exports.Endabgabe = {}));
 //# sourceMappingURL=server.js.map

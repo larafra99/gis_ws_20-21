@@ -172,11 +172,11 @@ export namespace Endabgabe {
     }
     async function astaverleih(buttonId: string): Promise<void> {
         console.log("datenbank");
-        await collectionData.updateOne({_id: Mongo.ObjectId.createFromHexString(buttonId)}, {$set: {"reserviert": null, "status": "ausgeliehen"} });  
+        await collectionData.updateOne({_id: Mongo.ObjectId.createFromHexString(buttonId)}, {$set: { "status": "ausgeliehen"} });  
     }
     async function astaverleihfrei(buttonId: string): Promise<void> {
         console.log("datenbank");
-        await collectionData.updateOne({_id: Mongo.ObjectId.createFromHexString(buttonId)}, {$set: {"reserviert": null, "status": "frei"} });  
+        await collectionData.updateOne({_id: Mongo.ObjectId.createFromHexString(buttonId)}, {$set: {"reserviert": "null", "status": "frei"} });  
     }
 
     

@@ -70,7 +70,7 @@ var Aufgabe3_4;
     }
     async function gettingUser(user) {
         let url = "https://gisws2021.herokuapp.com/showUser.html";
-        if (user != "null") {
+        if (user != "null" || null) {
             let userid = user.substr(8, user.length - 10);
             console.log(userid);
             url = url + "?" + "userID=" + userid;
@@ -80,7 +80,7 @@ var Aufgabe3_4;
             return responseText;
         }
         else {
-            return null;
+            return "null";
         }
     }
     async function ausgeliehen(_event) {
@@ -93,14 +93,13 @@ var Aufgabe3_4;
         let responseText = await response.text();
         //console.log(response);
         console.log(responseText);
-        //window.location.replace("astaverleih.html");  
+        window.location.replace("astaverleih.html");
     }
     async function frei(_event) {
         let url = "https://gisws2021.herokuapp.com/astaverleih.html";
-        let userId = sessionStorage.getItem("userId");
-        let dataId = _event.target.id;
-        console.log(dataId);
-        url = url + "?" + "userID=" + userId + "&dataID=" + dataId;
+        let selection = _event.target.id;
+        console.log("Button" + selection);
+        url = url + "?" + "buttonID=" + selection;
         console.log(url);
         let response = await fetch(url);
         let responseText = await response.text();
