@@ -120,7 +120,7 @@ namespace Aufgabe3_4 {
         let responseText: string = await response.text();
         //console.log(response);
         console.log(responseText);
-        window.location.replace("astaverleih.html");    
+        window.location.replace("astaVerleih.html");    
     }
     async function frei(_event: Event): Promise<void> {
         let url: string = "https://gisws2021.herokuapp.com/astaverleih.html";
@@ -132,6 +132,6 @@ namespace Aufgabe3_4 {
         let responseText: string = await response.text();
         //console.log(response);
         console.log(responseText);
-        window.location.replace("astaverleih.html"); 
+        window.location.replace("astaVerleih.html"); 
     }
 }
