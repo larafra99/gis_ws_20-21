@@ -9,6 +9,10 @@ namespace Aufgabe3_4 {
         _id: string;
         reserviert: string;
     }
+    interface User {
+        vorname: string;
+        nachname: string;
+    }
 
     async function showData(): Promise<void> {
         let url: string = "https://gisws2021.herokuapp.com/verleih.html";
@@ -96,7 +100,9 @@ namespace Aufgabe3_4 {
             console.log(url);
             let response: Response = await fetch(url);
             let responseText: string = await response.text();
-            return responseText;
+            let responseTextJson: User = JSON.parse(responseText);
+            let name: string = responseTextJson.vorname + " " + responseTextJson.nachname;
+            return name;
         }
         else {
             return "null";

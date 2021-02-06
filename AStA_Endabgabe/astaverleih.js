@@ -77,7 +77,9 @@ var Aufgabe3_4;
             console.log(url);
             let response = await fetch(url);
             let responseText = await response.text();
-            return responseText;
+            let responseTextJson = JSON.parse(responseText);
+            let name = responseTextJson.vorname + " " + responseTextJson.nachname;
+            return name;
         }
         else {
             return "null";
