@@ -19,3 +19,7 @@ https://larafra99.github.io/gis_ws_20-21/typescript/Endabgabe/index.html
 3.0 Datenbanken
 https://larafra99.github.io/gis_ws_20-21//Datenbanken/Aufgabe3.4/index.html
 
+Endabgabe ASTA-Verleih:
+
+Studenten: https://larafra99.github.io/gis_ws_20-21/AStA_Endabgabe/login.html
+ASTA-Zugang: https://larafra99.github.io/gis_ws_20-21/AStA_Endabgabe/astaVerleih.html
