@@ -75,6 +75,12 @@ var Endabgabe;
                 console.log(parameter.dataID);
                 await ausleihen(parameter.userID, parameter.dataID);
             }
+            else if (q.pathname == "/showUser.html") {
+                console.log("showUser");
+            }
+            else if (q.pathname == "/astaverleih.html") {
+                console.log("astaverleih");
+            }
         }
         _response.end();
     }

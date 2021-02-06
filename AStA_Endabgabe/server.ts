@@ -107,6 +107,14 @@ export namespace Endabgabe {
                 console.log(parameter.dataID);
                 await ausleihen(parameter.userID as string , parameter.dataID as string);
             }
+            else if (q.pathname == "/showUser.html") {
+                console.log("showUser");
+
+            }
+            else if (q.pathname == "/astaverleih.html") {
+                console.log("astaverleih");
+
+            }
         }
 
         _response.end();
