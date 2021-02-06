@@ -36,7 +36,7 @@ var Aufgabe3_4;
             tableelement4.innerHTML = responseTextJson[i].reserviert;
             //console.log(responseTextJson[1].status);
             console.log(sessionStorage.getItem("userId"));
-            console.log("respone" + responseTextJson[i].reserviert);
+            //console.log("respone" + responseTextJson[i].reserviert );
             if (responseTextJson[i].status == "reserviert") {
                 let button = document.createElement("button");
                 button.addEventListener("click", ausgeliehen);
@@ -68,12 +68,12 @@ var Aufgabe3_4;
     }
     async function gettingUser(user) {
         let url = "https://gisws2021.herokuapp.com/showUser.html";
-        url = url + "?" + "userID =" + user;
+        url = url + "?" + "userID=" + user;
         console.log(url);
         let response = await fetch(url);
         let responseText = await response.text();
         //console.log(response);
-        console.log(responseText);
+        //console.log(responseText);
     }
     async function ausgeliehen(_event) {
         let url = "https://gisws2021.herokuapp.com/astaverleih.html";

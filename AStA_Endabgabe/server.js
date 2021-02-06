@@ -120,7 +120,10 @@ var Endabgabe;
     }
     async function showuser(userID) {
         console.log("User");
-        await collection.findOne({ _id: userID });
+        let id = JSON.parse(userID);
+        console.log(id);
+        let user = await collection.findOne({ id });
+        console.log(user);
     }
 })(Endabgabe = exports.Endabgabe || (exports.Endabgabe = {}));
 //# sourceMappingURL=server.js.map

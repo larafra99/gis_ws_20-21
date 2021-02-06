@@ -48,7 +48,7 @@ namespace Aufgabe3_4 {
             tableelement4.innerHTML = responseTextJson[i].reserviert; 
             //console.log(responseTextJson[1].status);
             console.log(sessionStorage.getItem("userId"));
-            console.log("respone" + responseTextJson[i].reserviert );
+            //console.log("respone" + responseTextJson[i].reserviert );
 
             if (responseTextJson[i].status == "reserviert") {
                 let button: HTMLButtonElement = document.createElement("button");
@@ -87,12 +87,12 @@ namespace Aufgabe3_4 {
     }
     async function gettingUser(user: string): Promise<void> {
         let url: string = "https://gisws2021.herokuapp.com/showUser.html";
-        url = url + "?" + "userID =" + user;
+        url = url + "?" + "userID=" + user;
         console.log(url);
         let response: Response = await fetch(url);
         let responseText: string = await response.text();
         //console.log(response);
-        console.log(responseText);
+        //console.log(responseText);
     }  
     async function ausgeliehen(_event: Event): Promise<void> {
         let url: string = "https://gisws2021.herokuapp.com/astaverleih.html";

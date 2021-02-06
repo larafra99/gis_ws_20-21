@@ -160,7 +160,11 @@ export namespace Endabgabe {
     }
     async function showuser(userID: string): Promise<void> {
         console.log("User");
-        await collection.findOne({_id: userID});
+        let id: JSON = JSON.parse(userID);
+        console.log(id);
+        let user: User = await collection.findOne({id});
+        console.log(user);
+        
 
     }
 }
