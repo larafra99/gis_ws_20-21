@@ -160,7 +160,7 @@ export namespace Endabgabe {
     }
     async function showuser(userID: string): Promise<void> {
         console.log("User");
-        let user: User = await collection.findOne({_id: userID});
+        let user: User = await collection.findOne({_id: Mongo.ObjectId.createFromHexString(userID)});
         console.log(user);
         
 

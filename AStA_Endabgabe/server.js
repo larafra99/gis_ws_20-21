@@ -120,7 +120,7 @@ var Endabgabe;
     }
     async function showuser(userID) {
         console.log("User");
-        let user = await collection.findOne({ _id: userID });
+        let user = await collection.findOne({ _id: Mongo.ObjectId.createFromHexString(userID) });
         console.log(user);
     }
 })(Endabgabe = exports.Endabgabe || (exports.Endabgabe = {}));
