@@ -120,9 +120,7 @@ var Endabgabe;
     }
     async function showuser(userID) {
         console.log("User");
-        let id = userID.substr(8, userID.length - 2);
-        console.log(id);
-        let user = await collection.findOne({ _id: id });
+        let user = await collection.findOne({ _id: userID });
         console.log(user);
     }
 })(Endabgabe = exports.Endabgabe || (exports.Endabgabe = {}));
