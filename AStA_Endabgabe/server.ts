@@ -93,7 +93,7 @@ export namespace Endabgabe {
                     
                 }
                 else {
-                    _response.write("Emailadresse ist schon vergeben oder Felder sind");
+                    _response.write("Emailadresse ist schon vergeben oder Felder sind leer");
                 }    
             }
 
@@ -109,7 +109,7 @@ export namespace Endabgabe {
             }
             else if (q.pathname == "/showUser.html") {
                 console.log("showUser");
-                let nutzer: string = await showuser(parameter.userID as string);
+                let nutzer: User = await showuser(parameter.userID as string);
                 console.log(nutzer);
                 _response.write(JSON.stringify(nutzer));
 
@@ -166,8 +166,8 @@ export namespace Endabgabe {
         console.log(res);
         await collectionData.updateOne({_id: Mongo.ObjectId.createFromHexString(dataId)}, {$set: {"reserviert": userId, "status": "reserviert"} });  
     }
-    async function showuser(userID: string): Promise<string> {
-        let user: string = await collection.findOne({_id: Mongo.ObjectId.createFromHexString(userID)}, {projection: { _id: 0, email: 0, passwort: 0}} );
+    async function showuser(userID: string): Promise<User> {
+        let user: User = await collection.findOne({_id: Mongo.ObjectId.createFromHexString(userID)}, {projection: { _id: 0, email: 0, passwort: 0}} );
         return user;   
     }
     async function astaverleih(buttonId: string): Promise<void> {

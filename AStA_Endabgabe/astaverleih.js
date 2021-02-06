@@ -53,7 +53,7 @@ var Aufgabe3_4;
                 button.id = responseTextJson[i]._id;
                 //console.log(responseTextJson[i]._id);
                 tableelement3.appendChild(button);
-                button.innerHTML = "frei";
+                button.innerHTML = "frei geben";
                 let nutzer = await gettingUser(responseTextJson[i].reserviert);
                 tableelement4.innerHTML = nutzer;
             }

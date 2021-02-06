@@ -27,7 +27,7 @@ namespace Aufgabe3_4 {
         let tableheader4: HTMLElement = document.createElement("th");
         tableheader1.innerHTML = "Bild";
         tableheader2.innerHTML = "Name";
-        tableheader3.innerHTML = "Ausleihgebühr";
+        tableheader3.innerHTML = "Gebühr";
         tableheader4.innerHTML = "Status";
         document.getElementById("showData").appendChild(tabl);
         tabl.appendChild(tableheader1);

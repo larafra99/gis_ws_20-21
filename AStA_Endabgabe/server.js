@@ -62,7 +62,7 @@ var Endabgabe;
                     _response.write("Nutzer wurde erstellt");
                 }
                 else {
-                    _response.write("Emailadresse ist schon vergeben oder Felder sind");
+                    _response.write("Emailadresse ist schon vergeben oder Felder sind leer");
                 }
             }
             else if (q.pathname == "/verleih.html") {
