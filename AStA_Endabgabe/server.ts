@@ -109,8 +109,9 @@ export namespace Endabgabe {
             }
             else if (q.pathname == "/showUser.html") {
                 console.log("showUser");
-                console.log(parameter.userID );
-                await showuser(parameter.userID as string);
+                let nutzer: string = await showuser(parameter.userID as string);
+                console.log(nutzer);
+                _response.write(JSON.stringify(nutzer));
 
             }
             else if (q.pathname == "/astaverleih.html") {
@@ -158,10 +159,11 @@ export namespace Endabgabe {
         console.log(res);
         await collectionData.updateOne({_id: Mongo.ObjectId.createFromHexString(dataId)}, {$set: {"reserviert": userId, "status": "reserviert"} });  
     }
-    async function showuser(userID: string): Promise<void> {
+    async function showuser(userID: string): Promise<string> {
         console.log("User");
-        let user: string = await collection.findOne({_id: Mongo.ObjectId.createFromHexString(userID)});
+        let user: string = await collection.findOne({_id: Mongo.ObjectId.createFromHexString(userID)}, {projection: { _id: 0, email: 0, passwort: 0}} );
         console.log(user);
+        return user;
         
 
     }

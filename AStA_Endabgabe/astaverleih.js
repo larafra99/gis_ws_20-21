@@ -68,12 +68,14 @@ var Aufgabe3_4;
     }
     async function gettingUser(user) {
         let url = "https://gisws2021.herokuapp.com/showUser.html";
-        let userid = user.substr(8, user.length - 10);
-        console.log(userid);
-        url = url + "?" + "userID=" + userid;
-        console.log(url);
-        let response = await fetch(url);
-        let responseText = await response.text();
+        if (user != "null") {
+            let userid = user.substr(8, user.length - 10);
+            console.log(userid);
+            url = url + "?" + "userID=" + userid;
+            console.log(url);
+            let response = await fetch(url);
+            let responseText = await response.text();
+        }
         //console.log(response);
         //console.log(responseText);
     }
