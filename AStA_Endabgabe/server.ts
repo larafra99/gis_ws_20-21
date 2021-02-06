@@ -160,9 +160,9 @@ export namespace Endabgabe {
     }
     async function showuser(userID: string): Promise<void> {
         console.log("User");
-        let id: JSON = JSON.parse(userID);
+        let id: string = userID.substr(8, userID.length - 2);
         console.log(id);
-        let user: User = await collection.findOne(id);
+        let user: User = await collection.findOne({_id: id});
         console.log(user);
         
 
