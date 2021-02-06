@@ -162,7 +162,7 @@ export namespace Endabgabe {
         console.log("User");
         let id: JSON = JSON.parse(userID);
         console.log(id);
-        let user: User = await collection.findOne({id});
+        let user: User = await collection.findOne(id);
         console.log(user);
         
 

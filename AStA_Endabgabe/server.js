@@ -122,7 +122,7 @@ var Endabgabe;
         console.log("User");
         let id = JSON.parse(userID);
         console.log(id);
-        let user = await collection.findOne({ id });
+        let user = await collection.findOne(id);
         console.log(user);
     }
 })(Endabgabe = exports.Endabgabe || (exports.Endabgabe = {}));
