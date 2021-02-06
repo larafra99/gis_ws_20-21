@@ -109,7 +109,7 @@ export namespace Endabgabe {
             }
             else if (q.pathname == "/showUser.html") {
                 console.log("showUser");
-                console.log(parameter.userID as string);
+                console.log(parameter.userID );
                 await showuser(parameter.userID as string);
 
             }
