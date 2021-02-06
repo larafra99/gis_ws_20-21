@@ -86,8 +86,8 @@ namespace Aufgabe3_4 {
 
     }
     async function gettingUser(user: string): Promise<void> {
-        let url: string = "https://gisws2021.herokuapp.com/showuser.html";
-        url = url + "?" + user;
+        let url: string = "https://gisws2021.herokuapp.com/showUser.html";
+        url = url + "?" + "userID =" + user;
         console.log(url);
         let response: Response = await fetch(url);
         let responseText: string = await response.text();

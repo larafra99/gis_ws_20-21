@@ -109,6 +109,8 @@ export namespace Endabgabe {
             }
             else if (q.pathname == "/showUser.html") {
                 console.log("showUser");
+                console.log(parameter.userID as string);
+                await showuser(parameter.userID as string);
 
             }
             else if (q.pathname == "/astaverleih.html") {
@@ -154,8 +156,11 @@ export namespace Endabgabe {
         console.log("datenbank");
         let res: string = await collectionData.findOne({_id: Mongo.ObjectId.createFromHexString(dataId)});
         console.log(res);
-        await collectionData.updateOne({_id: Mongo.ObjectId.createFromHexString(dataId)}, {$set: {"reserviert": userId, "status": "reserviert"} });
-       
-        
+        await collectionData.updateOne({_id: Mongo.ObjectId.createFromHexString(dataId)}, {$set: {"reserviert": userId, "status": "reserviert"} });  
+    }
+    async function showuser(userID: string): Promise<void> {
+        console.log("User");
+        await collection.findOne({_id: userID});
+
     }
 }

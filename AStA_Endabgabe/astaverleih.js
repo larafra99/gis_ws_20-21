@@ -67,8 +67,8 @@ var Aufgabe3_4;
         }
     }
     async function gettingUser(user) {
-        let url = "https://gisws2021.herokuapp.com/showuser.html";
-        url = url + "?" + user;
+        let url = "https://gisws2021.herokuapp.com/showUser.html";
+        url = url + "?" + "userID =" + user;
         console.log(url);
         let response = await fetch(url);
         let responseText = await response.text();

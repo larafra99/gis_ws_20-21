@@ -77,6 +77,8 @@ var Endabgabe;
             }
             else if (q.pathname == "/showUser.html") {
                 console.log("showUser");
+                console.log(parameter.userID);
+                await showuser(parameter.userID);
             }
             else if (q.pathname == "/astaverleih.html") {
                 console.log("astaverleih");
@@ -115,6 +117,10 @@ var Endabgabe;
         let res = await collectionData.findOne({ _id: Mongo.ObjectId.createFromHexString(dataId) });
         console.log(res);
         await collectionData.updateOne({ _id: Mongo.ObjectId.createFromHexString(dataId) }, { $set: { "reserviert": userId, "status": "reserviert" } });
+    }
+    async function showuser(userID) {
+        console.log("User");
+        await collection.findOne({ _id: userID });
     }
 })(Endabgabe = exports.Endabgabe || (exports.Endabgabe = {}));
 //# sourceMappingURL=server.js.map
